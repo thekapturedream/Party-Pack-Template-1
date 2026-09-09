@@ -92,5 +92,15 @@ So a digital product is created once by hand, then maintained through the V1 API
 only creation is blocked. `store/listing.md` holds the paste-ready copy, the
 dashboard link, and the media IDs of the files already in the site's Media Manager.
 
+Live product: `8f485df2-a9f6-8dcd-2b9c-61c2b4ff21d8`, £22.00, visible.
+Lead-capture form: `b56d509c-a85c-4e75-98ae-3b1424af6a41`.
+
+Two things the API cannot do on this site, so they stay dashboard work: creating a
+digital product, and placing a form on a page. Everything else about a product —
+description, media, ribbon, SKU, SEO, visibility — is API-writable, and hidden
+products need `includeHiddenProducts: true` to come back from Query Products.
+
 No secrets are stored in this repo and none are needed: all Wix calls go through
 the authenticated Wix MCP tools.
+
+Marketing plan, channel ranking and the customer journey: `docs/go-to-market.md`.

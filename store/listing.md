@@ -87,8 +87,20 @@ all be maintained through the V1 API. Only creation is blocked.
   - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
   It gives away one puzzle of six and three of twenty-five sheets. Re-upload both
   files whenever the sample changes; the URLs are stable per file, not per version.
-- Worth considering next: gate the sample behind an email capture with Wix Forms,
-  which is already installed. A free link builds goodwill; a gated one builds a list.
+- **The email gate is half built.** The Wix Form exists (`Free sample — The
+  Vanishing Exhibit`, form id `b56d509c-a85c-4e75-98ae-3b1424af6a41`) with first
+  name, a required email, and a marketing-consent checkbox mapped to the contact's
+  EMAIL subscription. What is left can only be done in the Editor and dashboard:
+  1. Add the form to a page, e.g. `/free-sample`, and publish.
+  2. Automations: trigger **Form submitted**, filtered to this form, action **Send
+     an email** carrying both sample links.
+  3. Tell me the page URL and I will swap the product description's direct PDF
+     links for a link to that page. **Until that swap, the sample is not gated** —
+     the direct links below still work and are still in the description.
+- Direct sample links (leave live until the gate page exists, then remove):
+  - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
+  - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
+- Marketing plan and channel ranking: `docs/go-to-market.md`.
 - The commercial gate from the brief: **10 purchases from 300 qualified visits, at
   no more than £8 acquisition cost per order.** At £22 that leaves roughly £11 per
   sale toward development and overhead.
