@@ -40,8 +40,11 @@ than hours. This suits a product with no news value and year-round demand.
 
 Pin the actual pages, not styled stock photography. The evidence sheets are the
 product's argument: a photograph of a case file with a coded card on it says more
-than a flat-lay of balloons. The six shop images already built are the raw
-material.
+than a flat-lay of balloons.
+
+Three pins are built and waiting in `store/pins`, 1000 × 1500, generated from real
+sheets by `scripts/pins.mjs`: one for the how-to post, one for the free puzzle, one
+for the kit. Regenerate rather than editing them by hand.
 
 ### 3. Search, on thekapture.com
 

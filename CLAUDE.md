@@ -36,6 +36,7 @@ scripts/fetch-fonts.mjs      embeds latin subsets as base64 (run once; committed
 scripts/check-fit.mjs        fails if any sheet overflows its page
 scripts/preview.mjs          PNG of every sheet, for visual QA
 scripts/store-images.mjs     shop listing images, built from real pages
+scripts/pins.mjs             Pinterest pins, 2:3, also from real pages
 scripts/package.mjs          assembles the customer zip
 store/                       listing copy, description HTML, shop images
 ```
@@ -48,6 +49,7 @@ node src/build.ts --html     also write dist/html, needed by the scripts below
 node scripts/check-fit.mjs   REQUIRED before shipping; print silently truncates
 node scripts/preview.mjs A4  PNG per sheet into dist/preview
 node scripts/store-images.mjs
+node scripts/pins.mjs        vertical pins into store/pins
 node scripts/package.mjs     writes release/<title>-v<version>.zip
 ```
 
@@ -105,6 +107,9 @@ products need `includeHiddenProducts: true` to come back from Query Products.
 
 No secrets are stored in this repo and none are needed: all Wix calls go through
 the authenticated Wix MCP tools.
+
+**A free product is not an option.** Wix Stores checkout rejects a zero-balance
+order, so the sample cannot be sold at £0 to capture an email at checkout.
 
 **Wix Blog posts are the only on-domain page the API can create.** Write the copy
 as markdown, convert it with `POST /ricos/v1/ricos-document/convert/to-ricos`
