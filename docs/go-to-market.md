@@ -160,6 +160,62 @@ Paid ads stay last. At £22 with roughly £11 of margin, a £8 acquisition cost 
 almost nothing, and paying for traffic before the free channels have told you what
 converts is buying data at the worst possible price.
 
+## What is actually connected, checked 9 September 2026
+
+Read through Wix's Publisher API rather than assumed.
+
+| Channel | State |
+|---|---|
+| Facebook | Connected, six pages under one Facebook login: The Kapture (default), Kapture Studio, Kapture Academy, Spa_ces, Shugar, Shugar Jewelry |
+| Instagram | Not connected |
+| Pinterest | Not connected |
+| LinkedIn, YouTube, TikTok, Google Business Profile | Not connected |
+
+Instagram and Pinterest cannot be connected through the API on this plan: Get
+Connect Url returns 428, `metasite is ineligible for feature`. So Pinterest stays
+a manual channel, which is what `store/pins/pin-copy.md` already assumes. Nothing
+to change there, but do not plan on automating it.
+
+Facebook is the one channel Wix can publish to today, and The Kapture page is the
+default. It is a studio page rather than a parenting audience, so treat it as a
+place to be findable rather than a source of demand. Post the pins there because
+it is free, not because it will sell.
+
+## There is no email list, and no lawful way to manufacture one
+
+This was checked properly rather than assumed, because getting it wrong is an ICO
+complaint and a burned sending domain.
+
+- **Wix Contacts: 81, all unusable.** Every one has an unset email subscription
+  status. Nobody opted in.
+- **The seven Wix Stores contacts do not qualify for the soft opt-in.** PECR's
+  soft opt-in covers marketing a *similar* product to someone whose address you
+  took during a sale. The Kapture's prior sales are photography and web design. A
+  children's party printable is not similar to those.
+- **Google Contacts is not reachable** from this toolset at all — only Gmail,
+  Drive and Calendar are connected.
+- **The mailbox holds no inbound interest.** A search across two years for escape
+  rooms, party kits, birthday parties and printables returned five results, all
+  unrelated newsletters. There are no warm leads to work.
+
+Harvesting addresses out of a personal address book or a mailbox and mailing them
+a product promotion is direct marketing without consent. Do not do it. It is also
+commercially poor: an unconsented list produces spam complaints, which is how a
+sending domain gets throttled before the first real campaign.
+
+The lawful routes, in order of value:
+
+1. **Build the list from sample downloads.** Someone who downloads a free puzzle
+   and ticks a box has given consent, and is by definition in the market. That
+   list does not exist yet, which is the actual problem to solve.
+2. **Write personally to people you genuinely know with a child of nine to
+   twelve.** One-to-one messages, individually written, are not a mail merge.
+   Perhaps twenty exist. Ask them to run it and tell you what dragged — which is
+   also the five playtests the product still needs.
+3. **Ask every buyer for feedback.** The listing already promises free future
+   versions in exchange for it, and a buyer's address carries the soft opt-in for
+   the next kit, because that genuinely is a similar product.
+
 ## The 81 contacts are not a shortcut
 
 The CRM holds 81 contacts. Every one has an unset email subscription status, so
