@@ -128,11 +128,12 @@ it at.
 
 Everything above is the map. This is the route. Nothing here needs a budget.
 
-**1. Prove the store can take a payment.** Open the payments dashboard, confirm a
-method is connected, then buy the kit with a real card and refund it. This also
-proves delivery: that the download email arrives and the archive opens. Until this
-is done, every other step risks sending people to a checkout that cannot complete.
-The Stripe account on this project is a sandbox and cannot stand in for it.
+**1. Buy the kit once, with a real card, and refund it.** Payments are confirmed
+live — Stripe, PayPal and AliPay are all active at checkout — so this is no longer
+about whether money can be taken. It is about delivery, which nothing has
+exercised: whether the download email arrives and whether the archive opens for
+the buyer. A store that charges correctly and delivers nothing is the worse
+failure. Ten minutes, and it is the last thing between here and traffic.
 
 **2. List on Etsy.** `store/etsy-listing.md` is written to be pasted: title, price,
 all thirteen tags, the description, and which of the existing images goes in which
@@ -158,6 +159,13 @@ top of the funnel for a product that has never been run at a real party.
 Paid ads stay last. At £22 with roughly £11 of margin, a £8 acquisition cost leaves
 almost nothing, and paying for traffic before the free channels have told you what
 converts is buying data at the worst possible price.
+
+## The 81 contacts are not a shortcut
+
+The CRM holds 81 contacts. Every one has an unset email subscription status, so
+none has opted in to marketing. They cannot be mailed a launch announcement, and
+Wix Email Marketing will not send to them regardless. Build the list from sample
+downloads instead; that is what the Try step is for.
 
 ## What to measure, and when to stop
 

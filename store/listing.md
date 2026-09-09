@@ -136,34 +136,40 @@ who can reach the Editor. A published artifact page also works, captures name,
 email and consent, and releases both PDFs on submit — but it lives on claude.ai,
 so it fails the domain rule above and is a fallback, not the plan.
 
-## Before any money is spent on traffic
+## Payments, and the one thing still unproven
 
-**No real purchase has been completed yet.** The site is Premium on a custom
-domain, so payments are possible, and the owner reports a live Stripe account.
-Neither fact proves the store can complete a checkout: no Wix API reports which
-provider a merchant has connected, only which methods are *possible* in a country.
-Agent sessions see a Stripe sandbox (`acct_1SVx4v3mIHJCnHM5`, `livemode: false`)
-unless the live account is authorised, so Stripe reads from here prove nothing
-either. The browser in these sessions cannot reach the live site, so checkout
-cannot be walked.
+**Payments are live.** Confirmed in the dashboard on 9 September 2026: Stripe for
+cards, plus PayPal and AliPay, all active at checkout. Business location United
+Kingdom, store currency GBP.
 
-Check it by hand before driving a single visit:
+No API will tell you this. Wix's payment endpoints report only which methods are
+*possible* in a country, never which a merchant has connected, so the dashboard is
+the only source:
 
 ```
 https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/payments
 ```
 
-At least one payment method must be connected and live. Then buy the kit once,
-with a real card, and refund it. That is the only test that proves delivery as
-well as payment: it confirms the download email arrives and the archive opens.
+Agent sessions see a Stripe sandbox (`acct_1SVx4v3mIHJCnHM5`, `livemode: false`)
+rather than the live account. To let a session read real orders and revenue,
+authorise the live account for it through the Stripe tools, which issue a fresh
+consent URL on request.
 
-If Wix payments cannot be connected, PayPal is authorised on this project and has
-no payment links yet. A PayPal payment link plus manual file delivery is an ugly
-but working fallback that takes real money today.
+**Delivery has never been exercised.** No real order has run, so nothing has
+tested the download email or the buyer's copy of the archive. Buy the kit with a
+real card and refund it. A store that charges correctly and delivers nothing is
+the worse failure, and it is the one still open.
 
-To let a session read real sales rather than the sandbox, authorise the live
-Stripe account for it at https://access.stripe.com/mcp/oauth2/authorize — the
-Stripe tools issue a fresh consent URL on request.
+## The 81 contacts are not a mailing list
+
+The CRM holds 81 contacts, from site members, the Wix app, seven Stores contacts,
+and manual admin entries. **Every one has `subscriptionStatus: UNSET`** — nobody
+has recorded an opt-in to marketing email.
+
+That makes them unusable for a launch campaign. This is a UK business, so consent
+matters, and Wix Email Marketing will not send to unsubscribed contacts anyway.
+Do not treat this number as an audience. The list to sell to is the one built
+from sample downloads, and it does not exist yet.
 
 ## Everything else after launch
 
