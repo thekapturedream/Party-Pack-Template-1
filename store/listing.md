@@ -114,6 +114,16 @@ all be maintained through the V1 API. Only creation is blocked.
   page is public, or the gate is decorative):
   - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
   - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
+- **On-domain landing page, live:**
+  https://www.thekapture.com/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds
+  Created and published entirely through the API. Wix Blog posts are the only page
+  type the API can add to an existing site, so this is how anything on the domain
+  gets built from here. Markdown goes through
+  `POST /ricos/v1/ricos-document/convert/to-ricos`, then Create Draft Post and
+  Publish Draft Post. Post id `731601c4-923c-45cc-9ae2-d480429ffe38`.
+- The post currently links straight to the sample PDFs, because the artifact gate
+  is still owner-only and a public post must not carry a link that 404s. Swap the
+  two PDF links for the gate link the moment sharing is public.
 - Marketing plan and channel ranking: `docs/go-to-market.md`.
 - The commercial gate from the brief: **10 purchases from 300 qualified visits, at
   no more than £8 acquisition cost per order.** At £22 that leaves roughly £11 per

@@ -106,4 +106,10 @@ products need `includeHiddenProducts: true` to come back from Query Products.
 No secrets are stored in this repo and none are needed: all Wix calls go through
 the authenticated Wix MCP tools.
 
+**Wix Blog posts are the only on-domain page the API can create.** Write the copy
+as markdown, convert it with `POST /ricos/v1/ricos-document/convert/to-ricos`
+rather than hand-authoring Ricos JSON, then Create Draft Post and Publish Draft
+Post. That is the route for every future landing page while the Editor is out of
+reach.
+
 Marketing plan, channel ranking and the customer journey: `docs/go-to-market.md`.
