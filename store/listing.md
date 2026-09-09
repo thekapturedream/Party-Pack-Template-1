@@ -48,21 +48,37 @@ which is what Wix Stores Catalog V1 accepts.
 
 ## Creating the product
 
-Wix Stores Catalog V1 **cannot create digital products through its API** — it
-returns `product.productType digital is not supported`, and Wix does not allow a
+**This one step has to happen in the dashboard.** Wix Stores Catalog V1 cannot
+create digital products through its API — it returns
+`product.productType digital is not supported` — and Wix does not allow a
 product's type to be changed after creation, so a physical placeholder would have
-to be deleted rather than converted. The product therefore has to be created once
-in the dashboard. Everything it needs is already uploaded.
+to be deleted rather than converted.
 
-1. Open **Wix dashboard → Store Products → New Product → Digital Product**.
+Moving the site to Catalog V3, which does support digital products via API, is not
+available: migrating an existing site to the new product catalog is an open Wix
+feature request with no self-serve path and no published timeline, and the Catalog
+Versioning API is read-only (its only method is Get Catalog Version). Wix's own
+suggested workaround is starting a new site, which we are not doing — it would
+split The Kapture's members, orders, domain and analytics across two properties.
+
+So: create it once, by hand. Everything it needs is already uploaded.
+
+**Start here:** https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/wix-stores/products/new-product
+
+1. Choose **Digital Product** as the product type. This cannot be changed later.
 2. Paste the name, description, price, ribbon and SKU above.
-3. **Digital file:** click the upload field and choose *Media Manager*. The file
-   is already there, uploaded as private: `The-Vanishing-Exhibit-v1.0.zip`.
-4. **Images:** add all six from the Media Manager, in this order —
-   `vanishing-exhibit-01-hero` … `06-playtest-edition`. Image 1 is the one that
-   shows in search and social, so it must stay first.
+3. **Digital file:** use the upload field, choose *Media Manager*. The file is
+   already there as a private file: `The-Vanishing-Exhibit-v1.0.zip`.
+4. **Images:** add all six from the Media Manager, searching the label
+   `vanishing-exhibit`, in numbered order. Image 1 shows in search and social, so
+   it must stay first.
 5. Fill in the SEO panel from the section above.
-6. Save and set the product visible.
+6. Save, then set the product visible.
+
+Product list afterwards: https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/wix-stores/products
+
+Once the product exists, its price, description, images, ribbon and visibility can
+all be maintained through the V1 API. Only creation is blocked.
 
 ## After launch
 

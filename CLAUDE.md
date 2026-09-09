@@ -78,9 +78,14 @@ The Kapture: site ID `16ae0aa1-e41c-4192-9921-5c9511e1cb88`, Studio, GBP,
 
 **Catalog V1 cannot create digital products via API** — it rejects
 `productType: "digital"` — and Wix does not allow a product's type to be changed
-afterwards. The product must be created once in the dashboard. `store/listing.md`
-holds the paste-ready copy and the media IDs of the files already uploaded to the
-site's Media Manager.
+afterwards. Moving to Catalog V3 is not an escape hatch: migrating an existing site
+to the new catalog is an open Wix feature request with no self-serve path, and the
+Catalog Versioning API is read-only. Wix's suggested workaround is a new site,
+which would split this business across two properties and is out of the question.
+
+So a digital product is created once by hand, then maintained through the V1 API;
+only creation is blocked. `store/listing.md` holds the paste-ready copy, the
+dashboard link, and the media IDs of the files already in the site's Media Manager.
 
 No secrets are stored in this repo and none are needed: all Wix calls go through
 the authenticated Wix MCP tools.
