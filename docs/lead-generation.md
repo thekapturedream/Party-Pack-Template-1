@@ -97,6 +97,19 @@ Rules that make the difference between outreach and spam:
   accountability requirement under UK GDPR, and it stops the second round
   embarrassing you.
 
+## The licence question a library service will ask
+
+The kit's licence permits one organisation to print as often as it likes. It also
+forbids sharing the files. A county library service putting the kit into thirty
+branches sits between those two clauses, and someone will eventually ask which
+side it falls on.
+
+Do not resolve that by hoping nobody asks. The outreach template offers to sort
+out a service-wide licence instead, which is honest, opens a sale considerably
+larger than £22, and gives a busy librarian a concrete reason to reply.
+
+Decide the actual terms when the first service asks, not before.
+
 ## The licence gap worth closing
 
 The kit forbids running it as a paid event. That excludes holiday clubs, paid

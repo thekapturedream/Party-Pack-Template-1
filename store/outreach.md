@@ -77,6 +77,71 @@ Reply "no thanks" and I will not write again.
 
 ---
 
+## 3. Library services, at county or borough level
+
+The highest-leverage email on the list. A branch librarian can use the free
+puzzle on Thursday; a service can put it into every branch for a whole holiday.
+Write to the service, not to a branch.
+
+**Who.** Look for the Children's and Young People's Librarian, the Reading
+Development Manager, or whoever owns the holiday activity programme. County
+services publish these on their library service pages. Address a person by name
+where the site gives one; "the library service" is fine where it does not.
+
+**When.** Holiday programmes are planned a term ahead, so the send date matters
+more here than anywhere else on the list.
+
+| Programme | Plan it | Send by |
+|---|---|---|
+| October half-term | September | Early September |
+| February half-term | November to December | Early November |
+| Easter holidays | January to February | Mid January |
+| Summer Reading Challenge and summer programme | January to April | Late January |
+
+Sending in the holiday itself is wasted. Sending a term early is not.
+
+**Subject:** a printable escape room for the holiday programme
+
+```
+Hello [name or "the library service"],
+
+I make printable escape-room kits for nine to twelve-year-olds, and I think one
+might be useful for a holiday programme. Everything is print-and-run: black and
+white on ordinary paper, no props, no locks, no app, no booking system.
+
+One complete puzzle is free, with its answer and a three-level hint ladder so a
+member of staff can run it without solving it first:
+https://www.thekapture.com/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12
+
+The practical detail is here, including how it runs as parallel teams of six
+rather than one large group, which is what makes it work for a room of thirty
+with a wide age spread:
+https://www.thekapture.com/post/running-an-escape-room-in-a-classroom-or-library
+
+The full kit is a museum mystery: six puzzles, twenty-five sheets, an hour of
+play. Six puzzles, six different kinds of thinking, so the same child does not
+solve the whole thing while everyone else watches.
+
+If it is useful across more than one branch, tell me how many and I will sort out
+a licence that covers the service properly rather than asking you to buy it
+several times.
+
+Rodney Manyepa
+The Kapture · thekapture.com
+
+If you would rather not hear from me again, reply with "no thanks" and I will
+remove you.
+```
+
+**Why the last paragraph matters.** The product's licence covers one organisation
+printing as often as it likes. Sending the PDF files around thirty branches is
+closer to sharing the files, which the licence does not permit. Do not paper over
+that in the email. Offering to sort it out is more honest, opens a larger sale
+than £22, and gives them a reason to reply even if the answer is "just the one
+branch for now".
+
+---
+
 ## Tracking
 
 Keep one row per organisation: name, type, address used, date sent, date followed
