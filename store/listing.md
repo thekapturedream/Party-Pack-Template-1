@@ -101,11 +101,15 @@ search for a product, and each links to the product page and to the free puzzle.
 | [/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds](https://www.thekapture.com/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds) | "escape room birthday party ideas" |
 | [/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour](https://www.thekapture.com/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour) | "indoor birthday party ideas for 10 year olds" |
 | [/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids](https://www.thekapture.com/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids) | "how to make an escape room at home" |
+| [/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12](https://www.thekapture.com/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12) | "free printable escape room" |
+| [/post/running-an-escape-room-in-a-classroom-or-library](https://www.thekapture.com/post/running-an-escape-room-in-a-classroom-or-library) | "escape room classroom activity" |
 
 Post ids, for updating them through the API:
 `731601c4-923c-45cc-9ae2-d480429ffe38`,
 `f69faf7d-a2dd-41d2-9325-5f41d241895a`,
-`9993ed77-9f88-43b5-84f5-a00d55ba9ca4`.
+`9993ed77-9f88-43b5-84f5-a00d55ba9ca4`,
+`9ba362fa-16de-4d39-8e35-fbc261e0d767`,
+`aee97567-0991-4aed-853e-ea6f814af2b7`.
 Their markdown sources are in `content/posts/`, except the first, which was
 published before we kept sources; recover it with Convert From Ricos Document if
 it ever needs editing.

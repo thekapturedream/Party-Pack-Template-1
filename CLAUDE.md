@@ -115,7 +115,7 @@ order, so the sample cannot be sold at £0 to capture an email at checkout.
 as markdown in `content/posts/`, convert it with
 `POST /ricos/v1/ricos-document/convert/to-ricos` rather than hand-authoring Ricos
 JSON, then `POST /blog/v3/draft-posts?publish=true`. That is the route for every
-future landing page while the Editor is out of reach. Three posts are live.
+future landing page while the Editor is out of reach. Five posts are live; see `docs/search-strategy.md` for which query each one catches.
 
 **Everything we share points at thekapture.com.** The default shareable is the
 product page; the posts feed it. No claude.ai artifact, no third-party host — a

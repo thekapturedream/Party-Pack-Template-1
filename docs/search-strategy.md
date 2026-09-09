@@ -50,10 +50,15 @@ identifies. It is a second marketplace, not a distraction.
 | Build it myself | "how to make an escape room at home" | Post: the six puzzle types | Live |
 | Try before buying | "free printable escape room" | Post: the free puzzle | Live |
 | Ready to buy | "printable escape room kit ages 9-12" | Product page, and Etsy | Live, weak on Google |
-| Institutional | "escape room classroom activity", "library holiday activity" | Nothing yet | Gap |
+| Institutional | "escape room classroom activity", "library holiday activity" | Post: classroom and library | Live |
 
-The institutional row is the one worth writing next, because it feeds the
-outreach in `docs/lead-generation.md` rather than duplicating a consumer post.
+Every row is now covered. The institutional post is the one the school and
+library emails in `store/outreach.md` link to, so the outreach and the search
+work share an asset rather than each needing their own.
+
+The weakest row is "ready to buy". The product page is live but will not outrank
+Lock Paper Scissors or Escape Room Geeks on Google, which is the argument for
+Etsy carrying that intent instead.
 
 One caveat about the domain: thekapture.com's blog also carries posts about
 photography, nonprofits and web design. Mixed topics dilute how clearly Google

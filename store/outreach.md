@@ -24,13 +24,15 @@ up to, and it prints in black and white on ordinary paper.
 
 A4 and US Letter, with the answer and a three-level hint ladder so whoever runs it
 does not need to solve it first:
-https://www.thekapture.com/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids
+https://www.thekapture.com/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12
 
 It takes about eight minutes and works for a wet break or the last week of term.
 
 If it lands, the full kit is six puzzles and twenty-five sheets, and the licence
 covers classroom and library use — print it as often as you like, for as many
-groups as you like, on one purchase.
+groups as you like, on one purchase. How it runs with a whole class, in parallel
+teams of six rather than one big group, is written up here:
+https://www.thekapture.com/post/running-an-escape-room-in-a-classroom-or-library
 
 I am building this properly rather than quickly, so if you do use it I would
 genuinely like to know what dragged and what landed.
@@ -57,7 +59,7 @@ the weather ruins the plan.
 
 Black and white, ordinary paper, about eight minutes, with the answer and a hint
 ladder for whoever is running it:
-https://www.thekapture.com/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids
+https://www.thekapture.com/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12
 
 The full kit runs an hour, works for six to twelve of them, and needs a printer,
 scissors and nothing else. Six puzzles, each rewarding a different kind of
