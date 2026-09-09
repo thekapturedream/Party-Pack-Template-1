@@ -200,7 +200,7 @@ const IMAGES = [
 
 const browser = await chromium.launch();
 for (const img of IMAGES) {
-  const page = await browser.newPage({ viewport: { width: img.w, height: img.h }, deviceScaleFactor: 1.5 });
+  const page = await browser.newPage({ viewport: { width: img.w, height: img.h }, deviceScaleFactor: 2.5 });
   await page.setContent(shell(img.body, img.w, img.h), { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: `${OUT}/${img.name}.png` });

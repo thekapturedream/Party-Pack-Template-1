@@ -14,8 +14,8 @@ answers a different question from the one we need answered.
 
 **Digital download.** Etsy delivers the files itself, instantly, with no external
 host. Upload the same zip that is attached to the Wix product:
-`release/The-Vanishing-Exhibit-v1.0.zip` (under Etsy's 20MB per-file limit — check
-before upload; if it is over, upload the PDFs individually, up to five files).
+`release/The-Vanishing-Exhibit-v1.0.zip`. It is **4.5MB**, well inside Etsy's
+20MB per-file limit, so it goes up as a single file — no need to split the PDFs.
 
 ## Title
 
@@ -64,7 +64,7 @@ The first two lines are all that show before "read more" on mobile. They have to
 carry the whole offer.
 
 ```
-A printable escape room for 6–12 players aged 9–12. Print it, cut it, hand it out. One hour, six puzzles, no equipment beyond a printer and a pair of scissors.
+A printable escape room for 3–12 players aged 9–12. Print it, cut it, hand it out. One hour, six puzzles, no equipment beyond a printer and a pair of scissors.
 
 WHAT YOU GET — instantly, on purchase
 • 25 printable sheets, in A4 and US Letter
@@ -109,6 +109,13 @@ version free.
 
 Etsy ranks listings with more photos higher, and the first image is the only one
 most people see. Reuse the shop images already built.
+
+Checked against Etsy's current specs on 9 September 2026: minimum 2000px on the
+shortest side, 3000px recommended so zoom stays sharp. The shop images were
+1800px and have been regenerated at **3000 × 3000**, each under 700KB, which
+clears both the sharpness minimum and the 1MB upload limit. Re-run
+`node scripts/store-images.mjs` if they are ever rebuilt; the scale factor is set
+for this.
 
 | Slot | File | Why |
 |---|---|---|
