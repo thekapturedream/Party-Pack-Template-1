@@ -87,17 +87,31 @@ all be maintained through the V1 API. Only creation is blocked.
   - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
   It gives away one puzzle of six and three of twenty-five sheets. Re-upload both
   files whenever the sample changes; the URLs are stable per file, not per version.
-- **The email gate is half built.** The Wix Form exists (`Free sample — The
-  Vanishing Exhibit`, form id `b56d509c-a85c-4e75-98ae-3b1424af6a41`) with first
-  name, a required email, and a marketing-consent checkbox mapped to the contact's
-  EMAIL subscription. What is left can only be done in the Editor and dashboard:
-  1. Add the form to a page, e.g. `/free-sample`, and publish.
-  2. Automations: trigger **Form submitted**, filtered to this form, action **Send
-     an email** carrying both sample links.
-  3. Tell me the page URL and I will swap the product description's direct PDF
-     links for a link to that page. **Until that swap, the sample is not gated** —
-     the direct links below still work and are still in the description.
-- Direct sample links (leave live until the gate page exists, then remove):
+- **The email gate is live, on a page outside Wix.** Wix's Forms API creates form
+  *schemas* only: there is no standalone namespace, no share URL and no publish
+  method, and no API anywhere adds a page to an existing Wix site. So the gate is
+  a published artifact instead:
+
+  **https://claude.ai/code/artifact/01797344-e450-45ee-ae16-f2b4237f3e1a**
+
+  It captures first name, email and marketing consent, writes each lead to the
+  artifact's database, and releases both PDFs on submit. If the database
+  capability fails to load it releases the download anyway after four seconds:
+  a broken gate must never cost a real parent the sample.
+
+  Leads are pulled out with the artifact `read_db` action on `leads`, then pushed
+  into Wix with `POST /contacts/v5/contacts` and
+  `POST /email-marketing/v1/email-subscriptions`, so Wix stays the system of
+  record. That sync is manual, not automatic.
+
+  The Wix form schema (`b56d509c-a85c-4e75-98ae-3b1424af6a41`) is still there and
+  still correct, for whenever someone can reach the Editor.
+
+  **The artifact defaults to owner-only sharing.** It has to be set public from the
+  page's own share menu before a customer can open it, and before the product
+  description should point at it.
+- Direct sample links (still in the product description; remove them once the gate
+  page is public, or the gate is decorative):
   - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
   - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
 - Marketing plan and channel ranking: `docs/go-to-market.md`.

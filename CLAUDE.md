@@ -95,8 +95,11 @@ dashboard link, and the media IDs of the files already in the site's Media Manag
 Live product: `8f485df2-a9f6-8dcd-2b9c-61c2b4ff21d8`, £22.00, visible.
 Lead-capture form: `b56d509c-a85c-4e75-98ae-3b1424af6a41`.
 
-Two things the API cannot do on this site, so they stay dashboard work: creating a
-digital product, and placing a form on a page. Everything else about a product —
+Three things the API cannot do on this site: create a digital product, add a page
+to the site, and turn a form schema into a live form with a URL. The Forms API
+creates schemas only — no standalone namespace, no share URL, no publish method —
+so the free-sample gate lives on a published artifact page instead, and leads are
+synced into Wix Contacts and Email Subscriptions by hand. Everything else about a product —
 description, media, ribbon, SKU, SEO, visibility — is API-writable, and hidden
 products need `includeHiddenProducts: true` to come back from Query Products.
 

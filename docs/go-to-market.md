@@ -77,7 +77,7 @@ single date. Plan for steady spend rather than a seasonal push.
 | Stage | What happens | Runs on |
 |---|---|---|
 | Discovery | Pinterest pin, Etsy search, or a blog post answering a party-planning question | Pinterest, Etsy, Kleo for SEO content |
-| Try | Free sample, gated behind an email capture | Wix Forms + Automations |
+| Try | Free sample, gated behind an email capture | Published artifact page + artifact database |
 | Nurture | Two emails: the sample, then one asking how it went with a link to the full kit | Wix Automations, Wix Email Marketing |
 | Buy | Product page, £22, instant download | Wix Stores |
 | Deliver | Secure archive attached to the product | Wix Stores digital product |
