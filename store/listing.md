@@ -82,9 +82,13 @@ all be maintained through the V1 API. Only creation is blocked.
 
 ## After launch
 
-- Publish `Free-Sample.pdf` (in `dist/`, not in the paid zip) as a free download or
-  an email opt-in. It is evidence 3 printed exactly as it appears in the kit, plus
-  its hints and solution, so a parent can judge the reading age before paying.
+- The free sample is **published and linked from the product page**:
+  - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
+  - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
+  It gives away one puzzle of six and three of twenty-five sheets. Re-upload both
+  files whenever the sample changes; the URLs are stable per file, not per version.
+- Worth considering next: gate the sample behind an email capture with Wix Forms,
+  which is already installed. A free link builds goodwill; a gated one builds a list.
 - The commercial gate from the brief: **10 purchases from 300 qualified visits, at
   no more than £8 acquisition cost per order.** At £22 that leaves roughly £11 per
   sale toward development and overhead.

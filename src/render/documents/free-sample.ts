@@ -5,6 +5,15 @@ import { html, sheet, framed, runhead, runfoot, type PaperSize } from '../shell.
  *  parent can judge the quality and the reading age before paying. */
 export function freeSample(kit: Kit, size: PaperSize): string {
   const p = kit.puzzles.find((x) => x.id === 'cipher')!;
+  // The kit's scene-setter names the room that is puzzle 2's answer. Inside the
+  // kit that is fine — the team has already found it. Alone in a sample it is a
+  // spoiler, so this one line is neutral here. The puzzle itself is untouched.
+  const sampleIntro =
+    'A locked catalogue drawer, and a card written in the museum&rsquo;s old shelving code.';
+  // Same reason: the card's own letterhead names that room. Swapped for the
+  // museum in the sample only; the kit keeps the letterhead, where it is a
+  // reward for having already found the room rather than a giveaway.
+  const sampleEvidence = p.evidence.replaceAll('Marlow Library', 'Marlow Museum');
 
   const cover = sheet(`
     <header class="runhead">
@@ -19,8 +28,8 @@ export function freeSample(kit: Kit, size: PaperSize): string {
         </div>
         <span class="stamp" style="margin-top:4mm;white-space:nowrap">Try before you buy</span>
       </div>
-      <p class="lead" style="max-width:108mm;margin-top:var(--space-3)">This is evidence 3 of 6, printed exactly as it
-      appears in the kit, with its three hints and its solution. Try it on your child before you decide.</p>
+      <p class="lead" style="max-width:108mm;margin-top:var(--space-3)">This is evidence 3 of 6. The puzzle is exactly the one
+      in the kit, with its three hints and its solution. Try it on your child before you decide.</p>
 
       <div class="cols cols--3" style="margin:var(--space-4) 0;padding:var(--space-3) 0;
         border-top:var(--rule-medium) solid var(--ink);border-bottom:var(--hairline) solid var(--rule)">
@@ -63,9 +72,9 @@ export function freeSample(kit: Kit, size: PaperSize): string {
       <div class="stack-2">
         <div class="label label--brass">${p.kind}</div>
         <h1 class="display" style="font-size:30pt">${p.title}</h1>
-        <p class="lead" style="max-width:118mm">${p.intro}</p>
+        <p class="lead" style="max-width:118mm">${sampleIntro}</p>
       </div>
-      ${p.evidence}
+      ${sampleEvidence}
       <div class="panel panel--host">
         <div class="panel__title">Your task</div>
         <p class="lead" style="margin:0;color:var(--ink)">${p.task}</p>
@@ -94,10 +103,13 @@ export function freeSample(kit: Kit, size: PaperSize): string {
         <ol class="steps small">${p.solution.map((s) => `<li>${s}</li>`).join('')}</ol>
       </div>
       <div class="panel panel--host">
-        <div class="panel__title">What the other five puzzles ask for</div>
+        <div class="panel__title">What the other five puzzles ask of a child</div>
         <ul class="bullets small">
-          ${kit.puzzles.filter((x) => x.id !== p.id).map((x) =>
-            `<li><strong>${x.title}.</strong> ${x.task}</li>`).join('')}
+          <li><strong>The Night Log.</strong> Elimination &mdash; who could have been in the gallery, and who could not.</li>
+          <li><strong>The Locker Note.</strong> Space &mdash; tracing a route across a museum floor plan.</li>
+          <li><strong>The Stopped Clock.</strong> Time &mdash; two clocks that are both wrong and agree on the right answer.</li>
+          <li><strong>The Acquisitions Ledger.</strong> Arithmetic that sends the team back to sheets already solved.</li>
+          <li><strong>The Backwards Note.</strong> Perception &mdash; writing that only reads one way.</li>
         </ul>
         <p class="small" style="margin-top:var(--space-2)">No two puzzles use the same kind of thinking, so no single
         child runs away with the game. Two of them send the team back to sheets they have already solved.</p>

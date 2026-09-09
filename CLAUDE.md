@@ -58,6 +58,11 @@ node scripts/package.mjs     writes release/<title>-v<version>.zip
 - **Run `check-fit` after every content edit.** US Letter is 18mm shorter than A4;
   copy that fits A4 routinely overflows Letter, and print has no scrollbar to warn you.
 - **Never show the answer key in a shop image or preview.** It prints the solution.
+- **Re-run the free sample's leak audit after any content edit.** The sample must
+  not name another puzzle's answer. Two leaked at first: a character's first name
+  is puzzle 1's answer and a room name is puzzle 2's, and both appeared in flavour
+  text. `free-sample.ts` neutralises them for the sample only; the kit keeps its
+  wording, where the answers are already known by the time they appear.
 - **Brass is reserved** for the one letter that travels from an evidence sheet to
   the Recovery Slip. Nothing else may use it, or the mechanic stops reading.
 - **No full-page dark fills.** The listing promises cheap black-and-white printing.
