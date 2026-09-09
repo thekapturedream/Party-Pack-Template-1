@@ -1,0 +1,25 @@
+{
+  "name": "party-pack-template-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekapturedream/Party-Pack-Template-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thekapturedream/Party-Pack-Template-1/issues"
+  },
+  "homepage": "https://github.com/thekapturedream/Party-Pack-Template-1#readme",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.56.1"
+  },
+  "type": "module"
+}

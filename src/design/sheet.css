@@ -1,0 +1,357 @@
+/* ---------------------------------------------------------------------------
+   Sheet system — the printed equivalent of a layout library.
+   .sheet is one physical page. Everything else composes inside it.
+
+   The artefact components (.stamp, .tab, .punches, .doc, .taped) exist because
+   the players are 9–12: the thing that makes a printed puzzle land at that age
+   is that it looks like a real document, not a worksheet. All of them are drawn
+   with borders and outlines rather than fills, so realism costs almost no ink.
+--------------------------------------------------------------------------- */
+
+@page { size: var(--page-w) var(--page-h); margin: 0; }
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; background: #ffffff; }
+
+body {
+  font-family: var(--font-text);
+  font-size: var(--size-body);
+  line-height: var(--leading-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sheet {
+  position: relative;
+  width: var(--page-w);
+  /* 0.2mm short of the paper so Chromium never spills a blank trailing page. */
+  height: calc(var(--page-h) - 0.2mm);
+  padding: var(--page-margin-top) var(--page-margin-x) var(--page-margin-bottom);
+  background: var(--paper);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  break-after: page;
+}
+.sheet:last-child { break-after: auto; }
+.sheet--tint { background: var(--paper-tint); }
+.sheet--flush { padding: 0; }
+
+.sheet__body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+
+/* Filing holes down the binding edge. Outline only — no ink cost, but it is
+   the detail that makes a loose sheet read as something pulled from a file. */
+.punches::before, .punches::after {
+  content: "";
+  position: absolute;
+  left: 5.5mm;
+  width: 4.2mm; height: 4.2mm;
+  border: var(--hairline) solid var(--rule);
+  border-radius: 50%;
+}
+.punches::before { top: 26%; }
+.punches::after { top: 71%; }
+
+/* --- Running head and foot ------------------------------------------------ */
+
+.runhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
+  border-bottom: var(--rule-medium) solid var(--ink);
+}
+.runhead__mark {
+  font-family: var(--font-signage);
+  font-size: 10pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.runhead__note {
+  font-family: var(--font-signage);
+  font-size: 9pt;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.runfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: var(--hairline) solid var(--rule);
+  font-size: var(--size-caption);
+  color: var(--ink-faint);
+}
+
+/* --- Type ----------------------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--size-display);
+  font-weight: 900;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--track-display);
+  margin: 0;
+}
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--size-h1);
+  font-weight: 900;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--track-display);
+  margin: 0;
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--size-h2);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  margin: 0;
+}
+h3, .h3 {
+  font-family: var(--font-text);
+  font-size: var(--size-h3);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  margin: 0;
+}
+p { margin: 0 0 var(--space-2); }
+p:last-child { margin-bottom: 0; }
+.lead { font-size: var(--size-lead); line-height: var(--leading-loose); color: var(--ink-soft); }
+.small { font-size: var(--size-small); }
+.caption { font-size: var(--size-caption); color: var(--ink-faint); }
+.label {
+  font-family: var(--font-signage);
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.label--ink { color: var(--ink); }
+.label--brass { color: var(--brass); }
+.label--evidence { color: var(--evidence); }
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* --- Layout primitives ---------------------------------------------------- */
+
+.stack > * + * { margin-top: var(--space-3); }
+.stack-2 > * + * { margin-top: var(--space-2); }
+.stack-3 > * + * { margin-top: var(--space-3); }
+.stack-4 > * + * { margin-top: var(--space-4); }
+
+.cols { display: grid; gap: var(--space-4); }
+.cols--2 { grid-template-columns: 1fr 1fr; }
+.cols--3 { grid-template-columns: repeat(3, 1fr); }
+.cols--aside { grid-template-columns: 1fr 62mm; }
+
+.rule { height: var(--hairline); background: var(--rule); border: 0; margin: 0; }
+.rule--strong { height: var(--rule-medium); background: var(--rule-strong); }
+.grow { flex: 1 1 auto; min-height: 0; }
+
+/* --- Stamps and tabs ------------------------------------------------------ */
+
+.stamp {
+  display: inline-block;
+  font-family: var(--font-signage);
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--evidence);
+  border: 0.5mm solid var(--evidence);
+  outline: var(--hairline) solid var(--evidence);
+  outline-offset: 0.9mm;
+  padding: 1.6mm 3.2mm;
+  transform: rotate(-2.5deg);
+}
+.stamp--sm { font-size: 8.5pt; padding: 1mm 2.4mm; }
+.stamp--ink { color: var(--ink); border-color: var(--ink); outline-color: var(--ink); }
+
+/* The tab that names the sheet, as on a file divider. */
+.tab {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-signage);
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 1.4mm 4mm;
+}
+.tab--evidence { background: var(--evidence); }
+
+/* --- Panels --------------------------------------------------------------- */
+
+.panel {
+  border: var(--hairline) solid var(--rule);
+  padding: var(--space-3);
+  background: var(--paper);
+}
+.panel--tint { background: var(--paper-tint); border-color: var(--paper-deep); }
+.panel--slate { background: var(--slate-tint); border-color: #d5d9df; }
+.panel--brass { background: var(--brass-tint); border-color: #e0d0aa; }
+.panel--evidence { background: var(--evidence-tint); border-color: #ecc9c9; }
+.panel--host { border-left: var(--rule-heavy) solid var(--evidence); }
+.panel__title {
+  font-family: var(--font-signage);
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+/* --- In-world documents --------------------------------------------------- */
+
+/* A document panel: torn strip along the top, typewriter inside. */
+.doc {
+  position: relative;
+  font-family: var(--font-document);
+  font-size: 10pt;
+  line-height: 1.6;
+  background: var(--paper-tint);
+  border: var(--hairline) solid var(--paper-deep);
+  border-top: 2.2mm solid var(--paper-deep);
+  padding: var(--space-3);
+}
+.doc__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  border-bottom: var(--rule-medium) solid var(--ink);
+  padding-bottom: 1.5mm;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-signage);
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.doc--plain { font-family: var(--font-data); }
+
+/* A strip of tape holding something down. */
+.taped { position: relative; }
+.taped::before {
+  content: "";
+  position: absolute;
+  top: -3mm; left: 50%;
+  width: 26mm; height: 6mm;
+  margin-left: -13mm;
+  background: rgba(18, 20, 26, 0.06);
+  border-left: var(--hairline) solid var(--rule);
+  border-right: var(--hairline) solid var(--rule);
+  transform: rotate(-1.5deg);
+}
+
+.hand { font-family: var(--font-hand); font-size: 15.5pt; line-height: 1.35; }
+
+table.ledger { width: 100%; border-collapse: collapse; font-family: var(--font-data); font-size: 9.5pt; }
+table.ledger th {
+  text-align: left;
+  font-family: var(--font-signage);
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: var(--rule-medium) solid var(--ink);
+  padding: 1.5mm 2mm;
+}
+table.ledger td { padding: 1.8mm 2mm; border-bottom: var(--hairline) solid var(--rule); }
+table.ledger tr:last-child td { border-bottom: 0; }
+table.ledger td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.ledger--text { font-family: var(--font-text); font-size: var(--size-body); }
+
+/* --- Answer field and working-out space ----------------------------------- */
+
+.answer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border: var(--rule-medium) solid var(--ink);
+  padding: var(--space-2) var(--space-3);
+  background: var(--paper);
+}
+.answer__label {
+  font-family: var(--font-signage);
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.answer__boxes { display: flex; gap: 1.6mm; }
+.answer__box {
+  width: 8mm; height: 10mm;
+  border: var(--hairline) solid var(--ink-faint);
+  background: var(--paper);
+}
+.answer__box--marked { border: var(--rule-medium) solid var(--brass); background: var(--brass-tint); }
+.answer__hint { font-size: var(--size-caption); color: var(--ink-faint); margin-left: auto; text-align: right; }
+
+/* Ruled space to work in. Earns its place on the cipher and the ledger, where
+   children need somewhere to try things; it also stops a sheet ending in air. */
+.scratch {
+  border: var(--hairline) dashed var(--rule);
+  padding: var(--space-2) var(--space-3) 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 6.9mm,
+      var(--rule) 6.9mm 7.05mm
+    );
+  background-position: 0 3mm;
+}
+.scratch__title {
+  font-family: var(--font-signage);
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* --- Cut guides ----------------------------------------------------------- */
+
+.cutgrid { display: grid; width: 100%; height: 100%; }
+.cutcard {
+  border: var(--hairline) dashed var(--ink-faint);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- Utilities ------------------------------------------------------------ */
+
+.center { text-align: center; }
+.mirror { transform: scaleX(-1); display: inline-block; }
+.tabnum { font-variant-numeric: tabular-nums; }
+ol.steps { margin: 0; padding-left: 5mm; }
+ol.steps li { margin-bottom: var(--space-1); padding-left: 1mm; }
+ul.ticks { list-style: none; margin: 0; padding: 0; }
+ul.ticks li { position: relative; padding-left: 6mm; margin-bottom: var(--space-1); }
+ul.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.9mm;
+  width: 3.2mm; height: 3.2mm;
+  border: var(--hairline) solid var(--ink-faint);
+}
+ul.bullets { margin: 0; padding-left: 4.5mm; }
+ul.bullets li { margin-bottom: var(--space-1); }

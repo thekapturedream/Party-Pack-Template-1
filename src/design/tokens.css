@@ -1,0 +1,93 @@
+/* ---------------------------------------------------------------------------
+   Marlow Museum Mysteries — design tokens
+
+   Calibrated to the people who actually use this, not to studio taste:
+
+   PLAYERS, 9–12. This age rejects anything that reads as "for kids": primary
+   colour, rounded playful shapes, cartoon mascots. What lands is high contrast,
+   real-looking artefacts and a slightly serious register — a case file, not a
+   worksheet. So: near-black ink, one oxblood evidence red, cool archive paper,
+   slab and condensed type, typewriter documents.
+
+   BUYER, a parent. Wants proof it will work and proof it will print. So the
+   wrapper sheets stay calm and legible, nothing is dark-filled, and every page
+   still reads correctly in greyscale on a cheap inkjet.
+
+   Values are print-first: lengths in mm and pt, never px.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* Paper geometry — overridden per paper size by the build. */
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --page-margin-x: 16mm;
+  --page-margin-top: 13mm;
+  --page-margin-bottom: 12mm;
+
+  /* Ink. Three inks and paper. Forensic rather than warm: the near-black is
+     cooled slightly so it reads as archive, not as stationery. */
+  --ink: #12141a;
+  --ink-soft: #3a4150;
+  --ink-faint: #6e7684;
+  --paper: #ffffff;
+  --paper-tint: #f2f1ed;      /* archive card */
+  --paper-deep: #e3e1d9;
+  --rule: #c6c4bc;
+  --rule-strong: #12141a;
+
+  /* The accent. One red, used for anything official: stamps, case numbers,
+     evidence marks. Deep enough to stay legible in greyscale. */
+  --evidence: #a31621;
+  --evidence-tint: #f8e9e9;
+
+  /* Secondary accent, reserved for one job: the letter that travels from an
+     evidence sheet to the Recovery Slip. Nothing else may use it. */
+  --brass: #8a6516;
+  --brass-tint: #f3ead7;
+
+  /* Neutral panel for host-facing instructions. */
+  --slate-tint: #e9ebef;
+
+  /* Type. Four jobs, four faces.
+     display   headlines and covers — slab, institutional, sturdy in print
+     signage   labels, stamps, running heads — condensed caps, official forms
+     document  in-world artefacts — typewriter, lightly distressed
+     text      instructions children read — humanist sans, highest legibility */
+  --font-display: "Bitter", "Bitstream Charter", Georgia, serif;
+  --font-signage: "Oswald", "Liberation Sans Narrow", "Arial Narrow", sans-serif;
+  --font-document: "Special Elite", "Courier Prime", "Courier New", monospace;
+  --font-data: "Courier Prime", "Liberation Mono", "Courier New", monospace;
+  --font-text: "Source Sans 3", "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-hand: "Caveat", "Bitstream Charter", cursive;
+
+  --size-display: 40pt;
+  --size-h1: 26pt;
+  --size-h2: 15.5pt;
+  --size-h3: 11.5pt;
+  --size-lead: 11.5pt;
+  --size-body: 10.5pt;
+  --size-small: 9pt;
+  --size-caption: 8pt;
+  --size-label: 8pt;
+
+  --leading-tight: 1.06;
+  --leading-snug: 1.28;
+  --leading-body: 1.48;
+  --leading-loose: 1.6;
+
+  --track-label: 0.13em;
+  --track-display: -0.01em;
+
+  /* Spacing — an 8pt rhythm expressed in mm. */
+  --space-1: 2mm;
+  --space-2: 4mm;
+  --space-3: 6mm;
+  --space-4: 8mm;
+  --space-5: 11mm;
+  --space-6: 15mm;
+  --space-7: 20mm;
+
+  --hairline: 0.25mm;
+  --rule-medium: 0.5mm;
+  --rule-heavy: 1.2mm;
+}
