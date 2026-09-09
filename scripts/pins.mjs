@@ -97,6 +97,20 @@ const PINS = [
       <div class="foot"><span>thekapture.com</span><span class="muted">Instant download</span></div>
     </div>`,
   },
+  {
+    name: 'pin-04-indoor-ideas',
+    body: `<div class="pin">
+      <div class="kicker">Indoor party ideas</div>
+      <h1 class="sm">Ten is the<br/>hardest age<br/>to book for</h1>
+      <p class="sub">Soft play is beneath them and laser tag is over in forty minutes.
+         Five indoor formats that actually hold the room for an hour.</p>
+      <div class="art">
+        <img src="${page.cipher}" style="height:88%;left:0;top:6%;transform:rotate(-4deg)"/>
+        <img src="${page.door}" style="height:70%;right:0;top:18%;transform:rotate(5deg)"/>
+      </div>
+      <div class="foot"><span>thekapture.com</span><span class="muted">Free puzzle inside</span></div>
+    </div>`,
+  },
 ];
 
 const browser = await chromium.launch();

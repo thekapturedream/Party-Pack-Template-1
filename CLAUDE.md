@@ -123,11 +123,14 @@ link on someone else's domain builds someone else's asset. The free sample is
 ungated on purpose: a gate trades reach for addresses, which is the wrong trade at
 zero traffic.
 
-**Nobody has verified the store can take a payment**, and it must be checked
-before any spend on traffic. Wix's payment APIs report only which methods are
-*possible* in a country, never which are configured, so there is no API answer.
-The connected Stripe account is a sandbox (`livemode: false`). PayPal is
-authorised and unused, as a fallback. Details in `store/listing.md`.
+**Nobody has yet completed a real purchase**, which is the only proof of both
+payment and delivery. The site is Premium on a custom domain, so payments are
+possible, and the owner reports a live Stripe account. No API confirms which
+provider a merchant has actually connected — Wix's payment endpoints list only
+what is *possible* in a country. Sessions see a Stripe sandbox
+(`acct_1SVx4v3mIHJCnHM5`, `livemode: false`) unless the live account is
+authorised, so agent-side Stripe reads prove nothing either way. The test is to
+buy the kit with a real card and refund it. Details in `store/listing.md`.
 
 **This session's Chromium cannot reach the internet** — every host fails with
 `ERR_CONNECTION_RESET` through the agent proxy, while curl succeeds. Playwright is

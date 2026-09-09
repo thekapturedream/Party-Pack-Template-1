@@ -4,7 +4,7 @@ Pinterest is the second channel because pins keep working for months, and party
 planning is one of the things Pinterest is actually for. It is slow to start and
 does not stop, which is the opposite of Etsy.
 
-Three pins are built, 1000 × 1500, generated from real sheets by `scripts/pins.mjs`.
+Four pins are built, 1000 × 1500, generated from real sheets by `scripts/pins.mjs`.
 Regenerate them rather than editing them by hand.
 
 **Every destination is a thekapture.com URL.** Nothing points at a third-party host.
@@ -53,11 +53,16 @@ One complete puzzle from our museum mystery kit, free, with its answer and its t
 A museum mystery for 6 to 12 players aged 9 to 12. Twenty-five printable sheets, six puzzles that each reward a different kind of thinking, twenty-four hint cards, and a host guide written so you can run it without solving it first. Instant download, prints in black and white.
 ```
 
-## A fourth pin, from the newest post
+### pin-04-indoor-ideas.jpg
 
-The indoor-party post has no pin yet. When it gets one, point it at
-https://www.thekapture.com/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour
-and board it under "Birthday party ideas for 10 year olds".
+- **Title:** Indoor party ideas for 10 year olds
+- **Board:** Birthday party ideas for 10 year olds
+- **Link:** https://www.thekapture.com/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour
+- **Description:**
+
+```
+Ten is the hardest age to book a party for. Soft play is beneath them, laser tag is over in forty minutes, and they have been to the same four venues this year. Five indoor formats that hold a room of nine to twelve year olds for a full hour, and the hour-by-hour shape that makes any of them work.
+```
 
 ## Cadence
 

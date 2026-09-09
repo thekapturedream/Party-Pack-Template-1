@@ -138,11 +138,14 @@ so it fails the domain rule above and is a fallback, not the plan.
 
 ## Before any money is spent on traffic
 
-**Nobody has verified that this store can take a payment.** The Stripe account
-connected to this project is a sandbox (`livemode: false`) and cannot move real
-money. Wix's payment APIs report only which methods are *possible* in a country,
-never which the merchant has configured, and this session's browser cannot reach
-the live site, so it could not be walked.
+**No real purchase has been completed yet.** The site is Premium on a custom
+domain, so payments are possible, and the owner reports a live Stripe account.
+Neither fact proves the store can complete a checkout: no Wix API reports which
+provider a merchant has connected, only which methods are *possible* in a country.
+Agent sessions see a Stripe sandbox (`acct_1SVx4v3mIHJCnHM5`, `livemode: false`)
+unless the live account is authorised, so Stripe reads from here prove nothing
+either. The browser in these sessions cannot reach the live site, so checkout
+cannot be walked.
 
 Check it by hand before driving a single visit:
 
@@ -157,6 +160,10 @@ well as payment: it confirms the download email arrives and the archive opens.
 If Wix payments cannot be connected, PayPal is authorised on this project and has
 no payment links yet. A PayPal payment link plus manual file delivery is an ugly
 but working fallback that takes real money today.
+
+To let a session read real sales rather than the sandbox, authorise the live
+Stripe account for it at https://access.stripe.com/mcp/oauth2/authorize — the
+Stripe tools issue a fresh consent URL on request.
 
 ## Everything else after launch
 
