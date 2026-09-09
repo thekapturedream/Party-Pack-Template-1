@@ -112,9 +112,26 @@ the authenticated Wix MCP tools.
 order, so the sample cannot be sold at £0 to capture an email at checkout.
 
 **Wix Blog posts are the only on-domain page the API can create.** Write the copy
-as markdown, convert it with `POST /ricos/v1/ricos-document/convert/to-ricos`
-rather than hand-authoring Ricos JSON, then Create Draft Post and Publish Draft
-Post. That is the route for every future landing page while the Editor is out of
-reach.
+as markdown in `content/posts/`, convert it with
+`POST /ricos/v1/ricos-document/convert/to-ricos` rather than hand-authoring Ricos
+JSON, then `POST /blog/v3/draft-posts?publish=true`. That is the route for every
+future landing page while the Editor is out of reach. Three posts are live.
+
+**Everything we share points at thekapture.com.** The default shareable is the
+product page; the posts feed it. No claude.ai artifact, no third-party host — a
+link on someone else's domain builds someone else's asset. The free sample is
+ungated on purpose: a gate trades reach for addresses, which is the wrong trade at
+zero traffic.
+
+**Nobody has verified the store can take a payment**, and it must be checked
+before any spend on traffic. Wix's payment APIs report only which methods are
+*possible* in a country, never which are configured, so there is no API answer.
+The connected Stripe account is a sandbox (`livemode: false`). PayPal is
+authorised and unused, as a fallback. Details in `store/listing.md`.
+
+**This session's Chromium cannot reach the internet** — every host fails with
+`ERR_CONNECTION_RESET` through the agent proxy, while curl succeeds. Playwright is
+still fine for rendering local HTML, which is all the build needs. Do not attempt
+live-site browser QA from here.
 
 Marketing plan, channel ranking and the customer journey: `docs/go-to-market.md`.

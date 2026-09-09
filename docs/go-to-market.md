@@ -44,7 +44,8 @@ than a flat-lay of balloons.
 
 Three pins are built and waiting in `store/pins`, 1000 × 1500, generated from real
 sheets by `scripts/pins.mjs`: one for the how-to post, one for the free puzzle, one
-for the kit. Regenerate rather than editing them by hand.
+for the kit. Regenerate rather than editing them by hand. Titles, descriptions,
+boards and destination URLs are written out in `store/pins/pin-copy.md`.
 
 ### 3. Search, on thekapture.com
 
@@ -54,9 +55,22 @@ at a 10th birthday party indoors", "printable escape room for kids". Those are
 long-tail, low-competition, and they convert into sample downloads rather than
 straight into sales.
 
+Three posts are live, each aimed at a different query, each linking to the free
+puzzle and to the product page:
+
+- `/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds`
+- `/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour`
+- `/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids`
+
+Wix Blog posts are the only page the API can add to this site, so this is also the
+only way more pages get built until someone can reach the Editor. The markdown
+sources live in `content/posts/`.
+
 Wix's AI Marketing Agent (Kleo) does keyword research, page optimisation, blog
 posts and a monthly content plan, and the SEO half is free. It requires review and
 approval before anything publishes, so it drafts, it does not post unsupervised.
+Connect Google Search Console first, or it has nothing to work from — and until
+that is connected, nobody knows which of these three posts is being found.
 
 ### 4. Parent and teacher communities
 
@@ -80,7 +94,7 @@ single date. Plan for steady spend rather than a seasonal push.
 | Stage | What happens | Runs on |
 |---|---|---|
 | Discovery | Pinterest pin, Etsy search, or a blog post answering a party-planning question | Pinterest, Etsy, Kleo for SEO content |
-| Try | Free sample, gated behind an email capture | Published artifact page + artifact database |
+| Try | Free sample, ungated, linked from every post | Wix Blog post + Media Manager PDFs |
 | Nurture | Two emails: the sample, then one asking how it went with a link to the full kit | Wix Automations, Wix Email Marketing |
 | Buy | Product page, £22, instant download | Wix Stores |
 | Deliver | Secure archive attached to the product | Wix Stores digital product |
@@ -109,6 +123,41 @@ research budget available: buyers will tell you what to fix before you build kit
 Treat Kleo as a drafting assistant with a review gate, not an autopilot. It cannot
 tell you whether parents want the product; it can only make more of what you point
 it at.
+
+## Do these, in this order
+
+Everything above is the map. This is the route. Nothing here needs a budget.
+
+**1. Prove the store can take a payment.** Open the payments dashboard, confirm a
+method is connected, then buy the kit with a real card and refund it. This also
+proves delivery: that the download email arrives and the archive opens. Until this
+is done, every other step risks sending people to a checkout that cannot complete.
+The Stripe account on this project is a sandbox and cannot stand in for it.
+
+**2. List on Etsy.** `store/etsy-listing.md` is written to be pasted: title, price,
+all thirteen tags, the description, and which of the existing images goes in which
+slot. Same price as the direct listing. This is the only channel with buying intent
+already in it, and the only realistic source of the first review.
+
+**3. Set up the three Pinterest boards and pin the three pins.**
+`store/pins/pin-copy.md` has the titles, descriptions and destination URLs. Two to
+three pins a week, never a burst.
+
+**4. Connect Google Search Console** to the site, so the three posts start
+reporting impressions and queries. This costs nothing and is the difference
+between knowing and guessing in six weeks.
+
+**5. Answer party questions where parents already ask them.** Facebook parent
+groups and local school groups, genuinely, without a pitch. Mention the free
+puzzle only when it is actually the answer. This is slow, free, and the only
+channel that also tells you how parents describe the problem in their own words.
+
+**6. Five family playtests.** Still the real gate. Do not spend money widening the
+top of the funnel for a product that has never been run at a real party.
+
+Paid ads stay last. At £22 with roughly £11 of margin, a £8 acquisition cost leaves
+almost nothing, and paying for traffic before the free channels have told you what
+converts is buying data at the worst possible price.
 
 ## What to measure, and when to stop
 

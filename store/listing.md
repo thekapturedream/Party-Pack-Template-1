@@ -80,51 +80,88 @@ Product list afterwards: https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-992
 Once the product exists, its price, description, images, ribbon and visibility can
 all be maintained through the V1 API. Only creation is blocked.
 
-## After launch
+## The links to share
 
-- The free sample is **published and linked from the product page**:
-  - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
-  - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
-  It gives away one puzzle of six and three of twenty-five sheets. Re-upload both
-  files whenever the sample changes; the URLs are stable per file, not per version.
-- **The email gate is live, on a page outside Wix.** Wix's Forms API creates form
-  *schemas* only: there is no standalone namespace, no share URL and no publish
-  method, and no API anywhere adds a page to an existing Wix site. So the gate is
-  a published artifact instead:
+Everything we hand out points at **thekapture.com**. Nothing points at a
+claude.ai artifact, a usrfiles.com PDF, or any other host we do not own. A link on
+someone else's domain builds someone else's asset, and it looks wrong on a pin.
 
-  **https://claude.ai/code/artifact/01797344-e450-45ee-ae16-f2b4237f3e1a**
+**The default shareable is the product page.** When there is one link to give,
+this is it.
 
-  It captures first name, email and marketing consent, writes each lead to the
-  artifact's database, and releases both PDFs on submit. If the database
-  capability fails to load it releases the download anyway after four seconds:
-  a broken gate must never cost a real parent the sample.
+```
+https://www.thekapture.com/product-page/the-vanishing-exhibit-printable-escape-room-kit-ages-9-12
+```
 
-  Leads are pulled out with the artifact `read_db` action on `leads`, then pushed
-  into Wix with `POST /contacts/v5/contacts` and
-  `POST /email-marketing/v1/email-subscriptions`, so Wix stays the system of
-  record. That sync is manual, not automatic.
+Three on-domain posts feed it. Each answers a question parents search before they
+search for a product, and each links to the product page and to the free puzzle.
 
-  The Wix form schema (`b56d509c-a85c-4e75-98ae-3b1424af6a41`) is still there and
-  still correct, for whenever someone can reach the Editor.
+| Post | Search intent it answers |
+|---|---|
+| [/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds](https://www.thekapture.com/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds) | "escape room birthday party ideas" |
+| [/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour](https://www.thekapture.com/post/indoor-birthday-party-ideas-for-10-year-olds-that-actually-fill-an-hour) | "indoor birthday party ideas for 10 year olds" |
+| [/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids](https://www.thekapture.com/post/how-to-make-an-escape-room-at-home-the-six-puzzles-that-work-with-kids) | "how to make an escape room at home" |
 
-  **The artifact defaults to owner-only sharing.** It has to be set public from the
-  page's own share menu before a customer can open it, and before the product
-  description should point at it.
-- Direct sample links (still in the product description; remove them once the gate
-  page is public, or the gate is decorative):
-  - A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
-  - US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
-- **On-domain landing page, live:**
-  https://www.thekapture.com/post/how-to-run-an-escape-room-birthday-party-for-9-to-12-year-olds
-  Created and published entirely through the API. Wix Blog posts are the only page
-  type the API can add to an existing site, so this is how anything on the domain
-  gets built from here. Markdown goes through
-  `POST /ricos/v1/ricos-document/convert/to-ricos`, then Create Draft Post and
-  Publish Draft Post. Post id `731601c4-923c-45cc-9ae2-d480429ffe38`.
-- The post currently links straight to the sample PDFs, because the artifact gate
-  is still owner-only and a public post must not carry a link that 404s. Swap the
-  two PDF links for the gate link the moment sharing is public.
-- Marketing plan and channel ranking: `docs/go-to-market.md`.
+Post ids, for updating them through the API:
+`731601c4-923c-45cc-9ae2-d480429ffe38`,
+`f69faf7d-a2dd-41d2-9325-5f41d241895a`,
+`9993ed77-9f88-43b5-84f5-a00d55ba9ca4`.
+Their markdown sources are in `content/posts/`, except the first, which was
+published before we kept sources; recover it with Convert From Ricos Document if
+it ever needs editing.
+
+Wix Blog posts remain the only page type the API can add to this site. Write
+markdown, convert with `POST /ricos/v1/ricos-document/convert/to-ricos`, then
+`POST /blog/v3/draft-posts?publish=true`. That is the route for every future
+landing page while the Editor is out of reach.
+
+## The free sample, and why it is not gated
+
+The sample is two PDFs in the Media Manager:
+
+- A4: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_a6fe9751255040dc9197d917464221dc.pdf`
+- US Letter: `https://16ae0aa1-e41c-4192-9921-5c9511e1cb88.usrfiles.com/ugd/53eacf_326a7d8ff3cb42e2909a13edf19aeb5e.pdf`
+
+Re-upload both whenever the sample changes; the URLs are stable per file, not per
+version. They give away one puzzle of six and three sheets of twenty-five.
+
+**The posts link straight to them, with no email gate.** That is deliberate. A
+gate trades reach for addresses, which is the right trade once traffic exists and
+the wrong one at zero: every point of friction now costs a reader we cannot yet
+replace. Build the list after there is something to build it from.
+
+Two gate implementations already exist for when that day comes. The Wix form
+schema `b56d509c-a85c-4e75-98ae-3b1424af6a41` is correct and waiting for someone
+who can reach the Editor. A published artifact page also works, captures name,
+email and consent, and releases both PDFs on submit — but it lives on claude.ai,
+so it fails the domain rule above and is a fallback, not the plan.
+
+## Before any money is spent on traffic
+
+**Nobody has verified that this store can take a payment.** The Stripe account
+connected to this project is a sandbox (`livemode: false`) and cannot move real
+money. Wix's payment APIs report only which methods are *possible* in a country,
+never which the merchant has configured, and this session's browser cannot reach
+the live site, so it could not be walked.
+
+Check it by hand before driving a single visit:
+
+```
+https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/payments
+```
+
+At least one payment method must be connected and live. Then buy the kit once,
+with a real card, and refund it. That is the only test that proves delivery as
+well as payment: it confirms the download email arrives and the archive opens.
+
+If Wix payments cannot be connected, PayPal is authorised on this project and has
+no payment links yet. A PayPal payment link plus manual file delivery is an ugly
+but working fallback that takes real money today.
+
+## Everything else after launch
+
+- Marketing plan, channel ranking and what to do first: `docs/go-to-market.md`.
+- Etsy listing, paste-ready: `store/etsy-listing.md`. Pinterest copy: `store/pins/pin-copy.md`.
 - The commercial gate from the brief: **10 purchases from 300 qualified visits, at
   no more than £8 acquisition cost per order.** At £22 that leaves roughly £11 per
   sale toward development and overhead.
