@@ -238,3 +238,88 @@ weak, the channel or the message is wrong. Those need different fixes, and the
 combined number hides which one you have.
 
 Five family playtests still come before any of this is worth scaling.
+
+---
+
+# The second product: Paper Plane Template Pack
+
+Everything above was written for one product and still applies. What changes with
+a second one is worth writing down, because the temptation is to treat the plane
+pack as more of the same and it is not.
+
+## It is a different business at the same shop
+
+| | The Vanishing Exhibit | Paper Plane Template Pack |
+|---|---|---|
+| Price | £22 | £12 |
+| Buying decision | plan a party | rainy Saturday |
+| Search volume | thin | large |
+| Competition | a handful of real kits | hundreds of thin PDFs |
+| Ages | 9–12 | 6–12 |
+
+The escape room is a considered purchase with almost no competition. The plane
+pack is an impulse purchase in a crowded category. That inverts the job: for the
+escape room, the problem is that nobody is searching. For the planes, plenty are
+searching and the problem is being told apart from a £4 page of clip art.
+
+## What tells it apart, and what to actually say
+
+Three things are true of this pack and of essentially none of the cheap ones. Say
+these, in this order, everywhere:
+
+1. **The fold lines are printed on the template.** Nobody else does this, because
+   nobody else computed them. It is the single most demonstrable difference and it
+   photographs well.
+2. **Every fold is drawn, in order, at a fixed scale.** The competition shows a
+   finished plane and a paragraph.
+3. **Nothing is printed where the paper folds away**, so a template costs about
+   half the ink. Parents care about this more than anyone expects.
+
+What not to say: anything about the folding engine, computed geometry, or how the
+diagrams are generated. It is the reason the product is good and it is of no
+interest whatsoever to a parent buying a rainy-afternoon activity. It belongs in
+this repository and in the one honest-label listing image, nowhere else.
+
+## Channel ranking, revised
+
+1. **Etsy.** Higher than for the escape room, and for a clear reason: the search
+   demand already exists there. "Paper airplane" is a query people type. This is
+   the listing that will produce the shop's first review, and reviews are what the
+   escape room cannot buy for itself.
+2. **Pinterest.** Also higher. Paper planes are visual, seasonal-proof, and the
+   free plane gives a pin something to offer that costs the reader nothing. Six
+   pins are ready in `store/planes/pins/`.
+3. **The on-domain post.** [How to fold a paper airplane that actually
+   flies](https://www.thekapture.com/post/how-to-fold-a-paper-airplane-that-actually-flies)
+   answers a real query with real search volume, which is more than any of the
+   escape room's five posts can claim. It is the first page on this domain with a
+   plausible route to organic traffic.
+4. **The people you know.** Same as before, and easier: "print this free paper
+   plane for your kid" asks far less of a friend than "run an escape room".
+
+## The free plane does more work than the free puzzle
+
+The escape room's free sample is one puzzle of six — useful, but it only makes
+sense to someone already interested in escape rooms. The free plane is a complete
+working object that a child can fly ten minutes after the click. It is the better
+lead magnet by some distance, and it should be the thing every pin, post and
+message leads with, with the pack second.
+
+Still ungated, for the same reason: at zero traffic a gate trades reach for
+addresses and reach is the scarcer thing.
+
+## What to measure
+
+Same gate, different numbers. At £12 the margin is roughly £11.65 direct and
+£9.90 through Etsy, so the acquisition ceiling is about £4 per order rather than
+£8. Watch the same leading indicator — free-plane downloads to purchases — and
+watch one more: **which of the two products a visitor buys first**. If the planes
+routinely sell first and the escape room follows, the catalogue has a ladder and
+the next product should sit at the bottom of it, not the top.
+
+## Before any of this
+
+Fold one of each of the ten, from a real printer, on real paper. The geometry is
+guaranteed by the build; the flying is not. The Hammer and the Boomerang are the
+two most likely to disappoint, so start there. A plane that needs a tweak is a
+number in `src/content/paper-squadron.ts`, not a redraw.

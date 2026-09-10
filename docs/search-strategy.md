@@ -175,3 +175,34 @@ what converts is buying data at the worst available price.
 If it is ever run, bid on the specific long tail — "printable escape room 10 year
 old" — never the head term, and send the click to the product page rather than a
 post.
+
+
+---
+
+## The sixth post: paper planes
+
+[How to fold a paper airplane that actually
+flies](https://www.thekapture.com/post/how-to-fold-a-paper-airplane-that-actually-flies)
+— post id `9f9c5aa6-668e-4ccb-80c5-0a6c5b2216d7`, source in
+`content/posts/paper-airplane-that-flies-far.md`.
+
+**Query it catches:** "how to fold a paper airplane that flies far", and the long
+tail around it — "why does my paper airplane dive", "how to throw a paper
+airplane", "paper airplane instructions for kids".
+
+**Why it is different from the other five.** Those five answer questions that a
+parent planning a party might type, and the honest position on them is that the
+volume is thin. This one answers a question a very large number of people type
+every week, most of them children. The competition is correspondingly harder —
+there are thousands of paper plane pages — but the post has something almost none
+of them have: it is about the four things that make planes fail rather than a
+list of designs, and it ends with a free plane that works.
+
+**What to watch.** This is the first page on the domain where Search Console
+should show impressions within weeks rather than months. If it does not, the
+problem is the domain's authority rather than the post, and the answer is Pinterest
+and Etsy rather than more posts.
+
+**Do not write a second paper plane post yet.** Wait for this one to show
+impressions and see which queries it actually lands on. Writing three more first
+is how the escape room ended up with five posts and no data.

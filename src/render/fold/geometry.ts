@@ -226,6 +226,22 @@ export function crossSegment(poly: Poly, l: Line): Seg | null {
   return bestLen > 1e-7 ? best : null;
 }
 
+/** The inverse of an affine map. Throws rather than return nonsense: every
+ *  transform this engine makes is a reflection, rotation or mirror, all of
+ *  which are invertible, so a singular one means a bug upstream. */
+export function invertMat(m: Mat): Mat {
+  const det = m.a * m.d - m.b * m.c;
+  if (Math.abs(det) < 1e-12) throw new Error('Singular transform');
+  return {
+    a: m.d / det,
+    b: -m.b / det,
+    c: -m.c / det,
+    d: m.a / det,
+    e: (m.c * m.f - m.d * m.e) / det,
+    f: (m.b * m.e - m.a * m.f) / det,
+  };
+}
+
 export function bbox(polys: Poly[]): { x0: number; y0: number; x1: number; y1: number } {
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   for (const poly of polys) {

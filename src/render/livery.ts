@@ -15,7 +15,7 @@
 import type { Livery, Plane as PlaneSpec } from '../content/plane-types.ts';
 import type { Plane } from './fold/model.ts';
 import { creaseLines, HI, AIR, INK, FAINT, n, S } from './fold/draw.ts';
-import { bbox, inside, type Poly } from './fold/geometry.ts';
+import { applyPoly, bbox, compose, inside, lineThrough, mirrorMat, reflectMat, type Poly } from './fold/geometry.ts';
 
 const accentOf = (l: Livery) => (l.accent === 'hi' ? HI : l.accent === 'air' ? AIR : INK);
 
@@ -343,4 +343,55 @@ function faceLabel(spec: PlaneSpec, h: number, faceUp: boolean): string {
     : 'Start with this side FACE DOWN on the table';
   return `<text x="${n(0.5)}" y="${n(h - 0.018)}" text-anchor="middle" font-family="Barlow Condensed, sans-serif"
     font-size="3" letter-spacing="0.9" fill="${FAINT}">${spec.serial} &#183; ${spec.name.toUpperCase()} &#183; ${t}</text>`;
+}
+
+/** The finished plane, seen from above, wearing its livery.
+ *
+ *  This is not an illustration. The outer skin of a finished plane is the set
+ *  of facets that were never folded, and the engine knows where each of them
+ *  came from on the flat sheet — so the livery is pulled through that map and
+ *  clipped to the facet, which draws the plane exactly as the paper will come
+ *  out. It is the one way to check, without folding anything, that a marking
+ *  lands where it was meant to.
+ */
+export function foldedPreview(spec: PlaneSpec, model: Plane, h: number): string {
+  const side = model.sideView;
+  const box = bbox([side]);
+  const spineY = box.y1;
+  const art = liveryArt(spec, model, h);
+  const id = `fp${spec.id}`;
+
+  // Reflecting the model in its spine gives the other wing's shape. Its livery
+  // is the other half of the sheet, so the art is reflected in the sheet's
+  // centre line too — two reflections, which is a rotation, which is why the
+  // plane's name comes out reading nose to tail on both wings rather than
+  // backwards on one of them.
+  const inSpine = reflectMat(lineThrough({ x: box.x0, y: spineY }, { x: box.x1, y: spineY }));
+  const inSheet = mirrorMat(0.5);
+
+  const wing = (mirror: boolean) => model.outerFacets.map((f, i) => {
+    const poly = mirror ? applyPoly(inSpine, f.poly) : f.poly;
+    const m = mirror ? compose(inSpine, compose(f.fromSheet, inSheet)) : f.fromSheet;
+    const clip = `${id}${mirror ? 'm' : ''}c${i}`;
+    return `<clipPath id="${clip}"><polygon points="${poly.map((p) => `${n(p.x)} ${n(p.y)}`).join(' ')}"/></clipPath>`
+      + `<g clip-path="url(#${clip})"><g transform="matrix(${m.a.toFixed(6)} ${m.b.toFixed(6)} ${m.c.toFixed(6)} `
+      + `${m.d.toFixed(6)} ${n(m.e)} ${n(m.f)})">${art}</g></g>`;
+  }).join('');
+
+  const outline = (mirror: boolean) => {
+    const poly = mirror ? applyPoly(inSpine, side) : side;
+    return `<polygon points="${poly.map((p) => `${n(p.x)} ${n(p.y)}`).join(' ')}" fill="none" `
+      + `stroke="${INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
+  };
+
+  const w = box.x1 - box.x0;
+  const hgt = box.y1 - box.y0;
+  const pad = w * 0.04;
+
+  return `<svg viewBox="${n(box.x0 - pad)} ${n(box.y0 - pad)} ${n(w + pad * 2)} ${n(hgt * 2 + pad * 2)}"
+    role="img" aria-label="The finished ${spec.name}, seen from above, wearing its livery">
+    ${wing(false)}${wing(true)}
+    ${outline(false)}${outline(true)}
+    <line x1="${n(box.x0)}" y1="${n(spineY)}" x2="${n(box.x1)}" y2="${n(spineY)}" stroke="${INK}" stroke-width="1.3"/>
+  </svg>`;
 }

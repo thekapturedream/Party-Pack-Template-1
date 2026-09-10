@@ -9,7 +9,7 @@
 import {
   type Pt, type Poly, type Seg, type Mat, type Line,
   ID, apply, applyPoly, area, bisector, bbox, centroid, clip, compose, crossSegment,
-  inside, lineThrough, mirrorMat, perpBisector, pt, reflectMat, reflectPt, rotateMat, side,
+  inside, invertMat, lineThrough, mirrorMat, perpBisector, pt, reflectMat, reflectPt, rotateMat, side,
 } from './geometry.ts';
 
 export type Move =
@@ -116,6 +116,16 @@ export class Plane {
 
   /** The finished plane seen from the side: the last flat state. */
   get sideView(): Poly { return this.outline; }
+
+  /** The facets that never moved, in the finished model's own coordinates,
+   *  each with the map back to where it lies on the flat sheet. These are the
+   *  outside of the finished plane, so pulling the livery through the inverse
+   *  of that map draws the plane as it will actually look. */
+  get outerFacets(): { poly: Poly; fromSheet: Mat }[] {
+    return this.facets
+      .filter((f) => f.moves === 0)
+      .map((f) => ({ poly: f.poly, fromSheet: invertMat(f.toSheet) }));
+  }
 
   private run(step: Step, index: number) {
     const before: Frame = {
@@ -288,7 +298,7 @@ export class Plane {
     this.creases = this.creases.map((s) => [apply(mat, s[0]), apply(mat, s[1])] as Seg);
     this.facets = this.facets.map((f) => ({
       poly: applyPoly(mat, f.poly),
-      toSheet: compose(f.toSheet, invert(mat)),
+      toSheet: compose(f.toSheet, invertMat(mat)),
       moves: f.moves,
     }));
   }
@@ -375,19 +385,6 @@ export class Plane {
     const h = Math.max(...boxes.map((b) => b.y1 - b.y0));
     return Math.max(w, h);
   }
-}
-
-function invert(m: Mat): Mat {
-  const det = m.a * m.d - m.b * m.c;
-  if (Math.abs(det) < 1e-12) throw new Error('Singular transform');
-  return {
-    a: m.d / det,
-    b: -m.b / det,
-    c: -m.c / det,
-    d: m.a / det,
-    e: (m.c * m.f - m.d * m.e) / det,
-    f: (m.b * m.e - m.a * m.f) / det,
-  };
 }
 
 /** Splits every segment at the fold line and reflects the part that moves. */
