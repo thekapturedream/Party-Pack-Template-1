@@ -142,6 +142,57 @@ branch for now".
 
 ---
 
+## 4. Blogs and sites that publish "free printables" roundups
+
+A different kind of outreach from the first three. You are not selling; you are
+asking to be included in a list that already exists and already ranks.
+
+**Why it is worth doing.** The pages ranking for "free printable escape room"
+today are a Scribd upload, a clipart library and two kindergarten teaching blogs.
+Several of them are roundup posts. Getting the free puzzle added to one sends
+referral traffic immediately, and the link is what tells Google the domain is
+about this subject rather than about photography.
+
+**How to find targets.** Search for the roundup, not the product: "free printable
+escape room", "free escape room printables", "printable party games for kids",
+"end of term activities year 6". Anything that is a list of other people's
+resources is a target. Anything selling its own kit is a competitor; skip it.
+
+**What makes this succeed or fail.** Roundup authors are asked constantly. What
+gets through is a resource that is genuinely free, genuinely good, and already
+formatted for their reader. Ours is all three, and the puzzle is aimed at an age
+their existing entries mostly miss. Say that.
+
+**Subject:** a free 9-12 escape room puzzle for your printables round-up
+
+```
+Hello [name],
+
+Your post on [exact title] is one of the few that comes up for [the phrase you
+found it with], so this may or may not be useful.
+
+I make printable escape rooms, and one complete puzzle is free with nothing to
+sign up to: the puzzle sheet, the answer, and a three-level hint ladder, in A4
+and US Letter.
+
+https://www.thekapture.com/post/a-free-printable-escape-room-puzzle-for-ages-9-to-12
+
+The reason I am writing rather than just leaving it there: nearly every free
+escape room printable I can find is written for five to eight-year-olds, and
+yours has the same gap. This one is aimed at nine to twelve, which is the age
+that starts refusing anything that looks babyish.
+
+No obligation at all, and no reply needed if it is not a fit.
+
+Rodney Manyepa
+The Kapture · thekapture.com
+```
+
+**Do not** offer payment for a link, and do not ask for a specific anchor text.
+Both are against Google's spam policies and a roundup author will recognise them.
+
+---
+
 ## Tracking
 
 Keep one row per organisation: name, type, address used, date sent, date followed

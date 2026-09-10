@@ -65,6 +65,44 @@ photography, nonprofits and web design. Mixed topics dilute how clearly Google
 reads what the site is about. Not worth deleting anything, but every new post
 should be on this subject until the cluster is established.
 
+
+## Channels beyond ranking and posting
+
+Checked on 10 September 2026, in order of effort against likely return.
+
+**Google's free product listings.** The product page already emits correct
+Product structured data — Wix generates it, verified live: `Product`, `Offer`,
+`Brand`, price `22` in `GBP`, `availability: InStock`. That makes the page
+eligible for the free listings in Google's Shopping tab, which is the one place
+that catches transactional intent the blog cannot. It needs a Google Merchant
+Center account connected through Wix's own Google integration in the dashboard.
+Free, and it fills the weakest row of the query map.
+
+**Teachers Pay Teachers.** A live marketplace for exactly this material, and it
+surfaced in the search results for free printable escape rooms. The licence
+already covers classroom use, the classroom post is already written, and the
+audience is the same one `docs/lead-generation.md` targets. It is a second
+marketplace alongside Etsy rather than a distraction, and the same assets serve
+both. Do it after Etsy, so there is one channel's worth of evidence first.
+
+**Roundup links.** Template 4 in `store/outreach.md`. Several pages ranking for
+"free printable escape room" are lists of other people's resources, and being
+added to one sends referral traffic immediately while telling Google what this
+domain is about. That second effect matters here more than usual, because the
+blog also carries photography and web-design posts.
+
+**Topical clustering, done 10 September 2026.** All five posts are now in one
+category, which also created an indexable landing page:
+`/blog/categories/escape-rooms-and-party-games`. It groups the cluster for Google
+and gives outreach a single link that shows everything at once. Put every future
+post in the same category.
+
+**Video.** Pinterest and Facebook both favour video over static images, and a
+thirty-second silent pan across the printed sheets needs no script, no face and
+no voice. Descript and OpusClip are connected to this project if it is ever worth
+making. Not yet: the static pins have not been tested, so there is nothing to
+improve on.
+
 ## The instrument: Google Search Console
 
 This is the only thing that shows real queries rather than guesses. It is free,
