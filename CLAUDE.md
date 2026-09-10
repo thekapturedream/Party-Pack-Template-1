@@ -121,12 +121,26 @@ never stored twice: get it wrong and the livery ends up inside the plane.
 The Kapture: site ID `16ae0aa1-e41c-4192-9921-5c9511e1cb88`, Studio, GBP,
 **Wix Stores Catalog V1**. Only V1 endpoints (`/stores/v1/...`) work on this site.
 
-**Catalog V1 cannot create digital products via API** — it rejects
-`productType: "digital"` — and Wix does not allow a product's type to be changed
-afterwards. Moving to Catalog V3 is not an escape hatch: migrating an existing site
-to the new catalog is an open Wix feature request with no self-serve path, and the
-Catalog Versioning API is read-only. Wix's suggested workaround is a new site,
-which would split this business across two properties and is out of the question.
+**Catalog V1 cannot create digital products via API.** Re-tested end to end on
+10 September 2026 rather than taken on trust; all four routes fail:
+
+- `POST /stores/v1/products` with `productType: "digital"` →
+  `400 product.productType digital is not supported`. (A name over 80 characters
+  errors *first* and masks this, which is how it can look as though digital works.)
+- Any `/stores/v3/...` endpoint → `428 CATALOG_V1_SITE_CALLING_CATALOG_V3_API`.
+- Create as `physical`, then `PATCH` `productType` to `digital` →
+  **200 OK and silently ignored.** Reads back `physical`.
+- `PATCH` a `digitalFile` onto a physical product → **200 OK and silently
+  ignored.** Reads back absent.
+
+The last two matter more than the first: this API returns success and changes
+nothing. Never trust a 200 on `productType` or `digitalFile` — read the product
+back before acting on it, and never make a product visible until you have.
+
+Moving to Catalog V3 is not an escape hatch: migrating an existing site to the new
+catalog is an open Wix feature request with no self-serve path, and the Catalog
+Versioning API is read-only. Wix's suggested workaround is a new site, which would
+split this business across two properties and is out of the question.
 
 So a digital product is created once by hand, then maintained through the V1 API;
 only creation is blocked. `store/listing.md` holds the paste-ready copy, the

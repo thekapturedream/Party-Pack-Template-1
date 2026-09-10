@@ -52,37 +52,56 @@ HTML, which is what Wix Stores Catalog V1 accepts.
 
 ## Creating the product
 
-**This one step has to happen in the dashboard**, for the same reason as the
-escape room: Wix Stores Catalog V1 cannot create digital products through its
-API, and a product's type cannot be changed after creation. See the Wix section
-of `CLAUDE.md` for why Catalog V3 is not an escape hatch. Everything the product
-needs is already uploaded.
+**Four fields in the dashboard, then the API does the rest.**
 
-**Start here:** https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/wix-stores/products/new-product
+This is the one step the API cannot do, and it is not for want of trying. Tested
+directly against this site on 10 September 2026, all three routes fail:
 
-1. Choose **Digital Product** as the product type. This cannot be changed later.
-2. Paste the name, description, price, ribbon and SKU above.
-3. **Digital file:** use the upload field, choose *Media Manager*. The file is
-   already there as a private file: `Paper-Plane-Template-Pack-v1.0.zip` (2.1MB).
-4. **Images:** add all eight from the Media Manager, searching the label
-   `paper-planes`, in numbered order. Image 1 shows in search and social, so it
-   must stay first.
-5. Fill in the SEO panel from the section above.
-6. Save, then set the product visible.
+| Attempt | Result |
+|---|---|
+| `POST /stores/v1/products` with `productType: "digital"` | `400 — product.productType digital is not supported` |
+| Any `/stores/v3/...` endpoint | `428 — CATALOG_V1_SITE_CALLING_CATALOG_V3_API` |
+| Create as `physical`, then `PATCH` the type to `digital` | **200 OK, silently ignored.** Reads back as `physical` |
+| `PATCH` a `digitalFile` onto a physical product | **200 OK, silently ignored.** Reads back absent |
 
-Once the product exists, its price, description, images, ribbon and visibility
-can all be maintained through the V1 API. Only creation is blocked.
+The last two are the dangerous ones: they return success and change nothing. Do
+not trust a 200 from this API on either field — always read the product back.
 
-## The links to share
+### What to do
 
-Everything points at **thekapture.com**. The default shareable is the product
-page; the blog post feeds it.
+**Open:** https://manage.wix.com/dashboard/16ae0aa1-e41c-4192-9921-5c9511e1cb88/wix-stores/products/new-product
 
-```
-https://www.thekapture.com/product-page/paper-plane-template-pack-printable-paper-airplanes
-```
+1. Product type: **Digital**. This is the choice that cannot be changed later.
+2. **Name** — paste:
+   `Paper Plane Template Pack — 10 Printable Paper Airplanes, Ages 6–12`
+   (Catalog V1 caps names at 80 characters; this is 67.)
+3. **Price:** `12.00`
+4. **Digital file:** upload field → *Media Manager* → `Paper-Plane-Template-Pack-v1.0.zip`
+   (already there, private, 2.1MB)
+5. Save. Leave it hidden.
 
-(The slug is set in step 5 above, so this URL only exists once the product does.)
+Nothing else needs typing. Description, images, ribbon, SKU, SEO and visibility
+are all API-writable once the product exists.
+
+### Then, in a session
+
+Ask Claude to finish the product. The steps, in order:
+
+1. `POST /stores/v1/products/query` with `includeHiddenProducts: true` to find the
+   new product's id.
+2. `PATCH /stores/v1/products/{id}` with `description` (the HTML from
+   `store/planes/description.html`), `ribbon: "First edition"`, `sku: "KFS-01-PPT"`.
+3. `POST /stores/v1/products/{id}/media` with the eight `mediaId` values from the
+   Assets table below, **in numbered order** — image 1 is what shows in search
+   and social.
+4. `PATCH` the `seoData` slug and meta description from the SEO section above.
+5. Read the product back and confirm `productType: "digital"` and that
+   `digitalFile.fileName` is the plane zip and not the escape room's.
+6. `PATCH { visible: true }` last, only after step 5 passes.
+
+Step 5 is not optional. A product that charges for planes and delivers the escape
+room is the worst failure available here, and two of the API calls above are known
+to fail silently.
 
 ## The on-domain post
 
