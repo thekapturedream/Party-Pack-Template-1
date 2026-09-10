@@ -10,6 +10,76 @@ way.
 Sell the same kit at the same price. Do not discount to buy rank: a lower price
 answers a different question from the one we need answered.
 
+## Do these before the first listing
+
+Shop-level settings, in this order. Two of them are painful to change once
+listings exist.
+
+1. **Set the shop currency to GBP.** Do it before anything else. Changing it
+   later re-prices every listing and confuses anyone who saw the old price.
+2. **Opt out of Offsite Ads.** Marketing → Offsite Ads. Etsy enrols new shops by
+   default and takes a cut of any sale it attributes to an ad it ran. Opting out
+   is only possible below the earnings threshold, which is where a new shop is,
+   so take it while you can. Revisit if the shop ever grows past it, at which
+   point participation becomes mandatory anyway.
+3. **Write the shop policies, and say plainly that digital downloads are not
+   returnable.** Etsy expects a policy and buyers read it. "Files are delivered
+   instantly on purchase and cannot be returned. If anything is wrong with the
+   download, message me and I will fix it." That last sentence is what stops a
+   refund request becoming a bad review.
+4. **Shop title and About section.** The title appears under the shop name in
+   search: "Printable escape rooms for ages 9-12" beats "Kapture". The About
+   section is where the playtest-edition story belongs — it is genuinely unusual
+   and it is the thing that makes a stranger trust a shop with one listing.
+5. **Link thekapture.com** in the shop's About section. It is allowed, it drives
+   traffic to the pages we own, and it makes the shop look like a business rather
+   than a side project.
+
+## What £22 actually nets on Etsy
+
+Indicative, from third-party fee guides rather than Etsy's own page — check the
+current numbers in your dashboard before relying on them.
+
+| Fee | On a £22 sale |
+|---|---|
+| Transaction, 6.5% | £1.43 |
+| Payment processing, 4% + £0.20 | £1.08 |
+| Regulatory operating fee, ~0.48% | £0.11 |
+| Listing | £0.16 |
+| VAT on fees at 20%, if not VAT-registered | £0.56 |
+| **Total** | **~£3.34** |
+
+So roughly **£18.65 per sale**, against about £21.45 selling direct through Wix.
+Etsy costs around £2.80 a sale, and that is the price of its traffic rather than
+a problem. It still clears the £11 margin target comfortably.
+
+If the business is VAT-registered, the VAT row disappears from your cost and the
+net is nearer £19.20.
+
+**Do not discount to close that gap.** Matching the direct price is the point: a
+lower Etsy price tells you a different thing from the one we need to learn, and
+it trains buyers to wait for the cheaper channel.
+
+## The first week, once it is live
+
+Etsy gives new listings a short visibility window. Use it rather than waiting.
+
+- **Day 1:** publish, then check the listing on a phone. The first image and the
+  first two lines of the description are all most buyers see.
+- **Day 1:** pin the listing to Pinterest from the Etsy page as well as from
+  thekapture.com. Two routes in, and Etsy counts the referral.
+- **Days 2-7:** watch Etsy Stats for which search terms brought visits. That is
+  the same instrument as Search Console, and it reports faster.
+- **After 14 days:** replace the three weakest of the thirteen tags with variants
+  of whatever the stats show is working. Repeat fortnightly.
+- **On the first sale:** message the buyer once, after delivery, asking how it
+  went. The first five reviews are worth more than the first five sales, and this
+  is the only lever you have on them.
+
+Do not open a second listing until the first has data. Age-specific near-duplicate
+listings are how the ranking sellers work, but cloning a listing that is not
+converting just multiplies a mistake.
+
 ## Listing type
 
 **Digital download.** Etsy delivers the files itself, instantly, with no external
