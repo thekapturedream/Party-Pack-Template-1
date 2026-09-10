@@ -70,13 +70,36 @@ should be on this subject until the cluster is established.
 
 Checked on 10 September 2026, in order of effort against likely return.
 
-**Google's free product listings.** The product page already emits correct
-Product structured data — Wix generates it, verified live: `Product`, `Offer`,
-`Brand`, price `22` in `GBP`, `availability: InStock`. That makes the page
-eligible for the free listings in Google's Shopping tab, which is the one place
-that catches transactional intent the blog cannot. It needs a Google Merchant
-Center account connected through Wix's own Google integration in the dashboard.
-Free, and it fills the weakest row of the query map.
+**Google Merchant Center: recommended against, having checked properly.**
+
+The technical half is fine. The product page already emits correct Product
+structured data — Wix generates it, verified live: `Product`, `Offer`, `Brand`,
+price `22` in `GBP`, `availability: InStock`. Nothing on our side is missing.
+
+Google's policy is the problem. It excludes eBooks and PDFs from Shopping ads
+outright. Free listings are the exception where a PDF can still earn clicks, so
+the upside here is free listings only, never Shopping ads. Against that, digital
+and printable products are routinely rejected, approval is often reversed later,
+and a Merchant Center suspension for digital goods can take the linked Google Ads
+account with it, which is difficult to undo.
+
+A narrow upside against an account-level downside is a bad trade for a £22
+printable. Do not connect it now.
+
+There is also no route: no Wix API connects Merchant Center on its own. The only
+API reference to it is a *setting* on a Google Ads account — the Account API can
+update "the linked Merchant Center account" — which requires installing the Wix
+Google Ads app and creating a Google Ads account first. That is the paid channel
+this document defers, and it is precisely the account that a suspension would put
+at risk.
+
+Revisit only if the catalogue grows into something where the free listings are
+worth the exposure, and connect Merchant Center on its own rather than through a
+Google Ads account, so a suspension cannot cascade.
+
+**Etsy carries transactional intent instead.** It is a marketplace with buying
+intent already in it, no policy problem with printables, and it is already the
+first step of the plan.
 
 **Teachers Pay Teachers.** A live marketplace for exactly this material, and it
 surfaced in the search results for free printable escape rooms. The licence
