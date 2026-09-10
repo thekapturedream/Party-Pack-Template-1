@@ -137,10 +137,31 @@ The last two matter more than the first: this API returns success and changes
 nothing. Never trust a 200 on `productType` or `digitalFile` — read the product
 back before acting on it, and never make a product visible until you have.
 
-Moving to Catalog V3 is not an escape hatch: migrating an existing site to the new
-catalog is an open Wix feature request with no self-serve path, and the Catalog
-Versioning API is read-only. Wix's suggested workaround is a new site, which would
-split this business across two properties and is out of the question.
+**Upgrading this site to Catalog V3 is not available.** Checked against Wix's own
+help centre on 10 September 2026, not inferred:
+
+- *Wix Stores Request: Migrating Site to the New Product Catalog* states plainly
+  that it is **not possible** to migrate an existing Wix Stores site to the new
+  product catalog. It is a feature request collecting votes, with no form, no
+  eligibility criteria and no timeline.
+  https://support.wix.com/en/article/wix-stores-request-migrating-site-to-the-new-product-catalog
+- The Catalog Versioning API says a site's catalog version is **permanent**, and
+  V3 is rolling out to new sites only.
+- Catalog V3 *would* solve this — its Create Product supports digital products
+  outright — which is what makes it tempting. It is still not on offer.
+
+The only route to V3 is a new site, which would split the domain, the live
+product, orders, contacts, the blog posts and the SEO across two properties. Not
+worth automating a task that takes sixty seconds once per product.
+
+**Bulk CSV import does not help either.** Wix Stores CSV import and export cover
+physical products only; digital products are excluded, and that too is an open
+feature request.
+https://support.wix.com/en/article/wix-stores-request-importing-or-exporting-digital-products
+
+So: create each digital product by hand once, then drive everything else through
+the V1 API. Revisit only if the catalogue passes roughly twenty products, where
+the manual step stops being trivial.
 
 So a digital product is created once by hand, then maintained through the V1 API;
 only creation is blocked. `store/listing.md` holds the paste-ready copy, the
