@@ -205,7 +205,7 @@ function certificates(kit: Kit): string {
 }
 
 export function partyExtras(kit: Kit, size: PaperSize): string {
-  return html(`${kit.title} — Party Extras`, size, [
+  return html('museum', `${kit.title} — Party Extras`, size, [
     doorSign(kit),
     invitations(kit),
     badgesAndTokens(kit),

@@ -1,0 +1,211 @@
+/* ---------------------------------------------------------------------------
+   Kapture Flight School — the components that make this product read as flight
+   paperwork rather than a worksheet. Loaded after src/design/page.css, which
+   owns geometry, type and the neutral primitives.
+
+   Everything is drawn with rules, outlines and one accent. Nothing is
+   dark-filled: these sheets get printed ten times over on a home printer, and
+   the templates get printed most of all.
+--------------------------------------------------------------------------- */
+
+/* --- Brand type ----------------------------------------------------------- */
+
+.label--hi { color: var(--hi); }
+.label--air { color: var(--air); }
+
+/* --- Step numbers --------------------------------------------------------- */
+
+/* The single most important element in the product: a child following a fold
+   sequence navigates by these. Square, high contrast, never decorative. */
+.step-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 7mm; height: 7mm;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-signage);
+  font-weight: 700;
+  font-size: 11pt;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.step-no--hi { background: var(--hi); }
+.step-no--open { background: var(--paper); color: var(--ink); border: var(--rule-medium) solid var(--ink); }
+.step-no--lg { width: 9mm; height: 9mm; font-size: 14pt; }
+
+/* --- Tabs and marks ------------------------------------------------------- */
+
+.tab--hi { background: var(--hi); }
+.tab--air { background: var(--air); }
+
+/* A stencilled airfield mark: the plane's name and number, as on a fin. */
+.fin {
+  display: inline-block;
+  font-family: var(--font-signage);
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--ink);
+  border: var(--rule-medium) solid var(--ink);
+  padding: 1.4mm 3mm;
+}
+.fin--hi { color: var(--hi); border-color: var(--hi); }
+
+/* --- Panels --------------------------------------------------------------- */
+
+.panel--hi { background: var(--hi-tint); border-color: #f3cdbc; }
+.panel--air { background: var(--air-tint); border-color: #c6d8e8; }
+.panel--slate { background: var(--slate-tint); border-color: #d6d9de; }
+/* The grown-up voice: anything addressed to the adult in the room. */
+.panel--adult { border-left: var(--rule-heavy) solid var(--air); }
+/* The warning voice: the four things that ruin a flight. */
+.panel--warn { border-left: var(--rule-heavy) solid var(--hi); }
+
+/* A pair of short notes set as label-then-text on one line each: the same
+   information as two stacked panels in a third of the height. */
+.notes { border: var(--hairline) solid var(--rule); background: var(--paper-tint); padding: var(--space-2) var(--space-3); }
+.notes > div { display: flex; gap: var(--space-3); align-items: baseline; }
+.notes > div + div { margin-top: 1.6mm; padding-top: 1.6mm; border-top: var(--hairline) solid var(--rule); }
+.notes dt {
+  width: 34mm; flex: 0 0 auto;
+  font-family: var(--font-signage); font-size: var(--size-label); font-weight: 600;
+  letter-spacing: var(--track-label); text-transform: uppercase;
+}
+.notes dd { margin: 0; font-size: var(--size-small); }
+
+/* --- Flight data ---------------------------------------------------------- */
+
+/* The spec block under every plane name: what it does in the air. */
+.spec { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+.spec--strip {
+  justify-content: space-between;
+  gap: var(--space-3);
+  border-top: var(--rule-medium) solid var(--ink);
+  border-bottom: var(--hairline) solid var(--rule);
+  padding: 1.8mm 0;
+}
+.spec--strip .spec__v { display: flex; align-items: center; gap: 1.6mm; }
+.spec__k {
+  font-family: var(--font-signage);
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.spec__v { font-family: var(--font-data); font-size: 11pt; line-height: 1.2; }
+
+/* A five-step difficulty or performance bar. Squares, not stars: it reads as a
+   measurement rather than a review score. */
+.bars { display: inline-flex; gap: 0.9mm; vertical-align: -0.4mm; }
+.bars i {
+  width: 3mm; height: 3mm;
+  border: var(--hairline) solid var(--ink);
+  background: var(--paper);
+}
+.bars i.on { background: var(--ink); }
+.bars--hi i.on { background: var(--hi); border-color: var(--hi); }
+.bars--air i.on { background: var(--air); border-color: var(--air); }
+
+/* --- Fold diagrams -------------------------------------------------------- */
+
+/* A grid of fold steps. The diagram gets a fixed height so every step of one
+   plane is drawn at the same size — the model shrinking as it is folded is the
+   strongest cue a child has that they are on the right step — and the caption
+   takes whatever it needs underneath. */
+.steps-grid {
+  --art-h: 27mm;
+  display: grid;
+  gap: 5mm var(--space-3);
+  align-content: start;
+}
+.stepcell { display: flex; flex-direction: column; }
+.stepcell__art {
+  height: var(--art-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--hairline) solid var(--rule);
+  padding-bottom: 1.6mm;
+}
+.stepcell__art svg { height: 100%; width: 100%; }
+.stepcell__cap {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  padding-top: 1.8mm;
+}
+.stepcell__cap p { font-size: 9.5pt; line-height: 1.26; margin: 0; }
+.stepcell__cap .caption { line-height: 1.25; display: block; margin-top: 0.6mm; }
+
+/* The finished plane gets a wide cell of its own: it is two drawings side by
+   side, and squeezing it into a step-sized box makes both illegible. */
+.finished {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  border: var(--hairline) solid var(--rule);
+  background: var(--paper-tint);
+  padding: var(--space-3);
+}
+.finished__art { flex: 1 1 auto; height: 23mm; min-width: 0; }
+.finished__art svg { height: 100%; width: 100%; }
+.finished__cap { width: 62mm; flex: 0 0 auto; }
+
+/* The key that explains the line language, printed on every fold sheet. */
+.foldkey { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+.foldkey > div { display: flex; gap: var(--space-2); align-items: center; }
+.foldkey .k { font-size: var(--size-caption); color: var(--ink-soft); }
+
+/* --- Template sheets ------------------------------------------------------ */
+
+/* A template is the whole page: the livery bleeds to the trimmed edge and the
+   printed crease lines have to be exactly where the geometry puts them, so it
+   gets no page padding and no running head. */
+.template { padding: 0; }
+.template svg { display: block; width: 100%; height: 100%; }
+
+/* --- Log sheets ----------------------------------------------------------- */
+
+table.log { width: 100%; border-collapse: collapse; font-family: var(--font-data); font-size: 10pt; }
+table.log th {
+  text-align: left;
+  font-family: var(--font-signage);
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: var(--rule-medium) solid var(--ink);
+  padding: 1.6mm 2mm;
+  color: var(--ink-soft);
+}
+table.log td {
+  padding: 0;
+  height: 9mm;
+  border-bottom: var(--hairline) solid var(--rule);
+  border-right: var(--hairline) solid var(--rule);
+}
+table.log td:last-child { border-right: 0; }
+table.log tr:last-child td { border-bottom: var(--rule-medium) solid var(--ink); }
+
+/* --- Cut-out pieces ------------------------------------------------------- */
+
+/* Badges, licences and challenge cards all cut out of a sheet. The dashed rule
+   is the cut line; the corner ticks tell a child where to start. */
+.cutcard--hi { border-color: var(--hi); }
+.snip { position: relative; }
+.snip::before {
+  content: "\2702";
+  position: absolute;
+  top: -1mm; right: 1mm;
+  font-size: 9pt;
+  color: var(--ink-faint);
+}
+
+/* A tighter table for the sheets that carry ten rows and still have to fit US
+   Letter, which is 18mm shorter than A4. */
+table.ledger--tight th { padding-top: 1mm; padding-bottom: 1mm; }
+table.ledger--tight td { padding-top: 1.1mm; padding-bottom: 1.1mm; }

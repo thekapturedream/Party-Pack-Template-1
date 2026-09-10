@@ -48,5 +48,5 @@ export function hintCards(kit: Kit, size: PaperSize): string {
     ));
   }
 
-  return html(`${kit.title} — Hint Cards`, size, pages, `.sheet { padding: 10mm; }`);
+  return html('museum', `${kit.title} — Hint Cards`, size, pages, `.sheet { padding: 10mm; }`);
 }

@@ -158,7 +158,7 @@ function recoverySheet(kit: Kit): string {
 }
 
 export function playerPack(kit: Kit, size: PaperSize): string {
-  return html(`${kit.title} — Player Pack`, size, [
+  return html('museum', `${kit.title} — Player Pack`, size, [
     coverSheet(kit),
     ...kit.puzzles.map((p) => puzzleSheet(kit, p)),
     recoverySheet(kit),

@@ -352,7 +352,7 @@ function troubleshooting(kit: Kit): string {
 }
 
 export function hostGuide(kit: Kit, size: PaperSize): string {
-  return html(`${kit.title} — Host Guide`, size, [
+  return html('museum', `${kit.title} — Host Guide`, size, [
     cover(kit, size),
     whatYouNeed(kit),
     runningIt(kit),

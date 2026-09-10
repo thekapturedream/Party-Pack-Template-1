@@ -66,5 +66,5 @@ export function answerKey(kit: Kit, size: PaperSize): string {
     runfoot(`${kit.title} &middot; Answer key`, '2 / 2'),
   ));
 
-  return html(`${kit.title} — Answer Key`, size, [page1, page2]);
+  return html('museum', `${kit.title} — Answer Key`, size, [page1, page2]);
 }

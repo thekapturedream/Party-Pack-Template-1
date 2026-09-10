@@ -1,0 +1,106 @@
+/* ---------------------------------------------------------------------------
+   Kapture Flight School — design tokens
+
+   Calibrated to the two people who use this, and deliberately not to the
+   museum kit's voice:
+
+   FOLDERS, 6–12. A seven-year-old following a diagram needs the *current* fold
+   to be unmistakable and everything else to get out of the way. So one hot
+   accent marks the fold you make now, every fold already made is grey, and the
+   meaning is carried by line style before colour — the diagrams still work
+   photocopied. Type runs a point larger than the museum kit for the same
+   reason: this is read while holding a piece of paper.
+
+   BUYER, a parent. Wants proof it will fly and proof it will print. So the
+   register is flight-test paperwork rather than cartoon: airfield signage,
+   technical drawing, measured numbers. Nothing is dark-filled, because a
+   livery that floods a sheet with ink is the fastest way to a refund.
+
+   Values are print-first: lengths in mm and pt, never px.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* Paper geometry — overridden per paper size by the build. */
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --page-margin-x: 15mm;
+  --page-margin-top: 13mm;
+  --page-margin-bottom: 12mm;
+
+  /* Ink. Warmer than the museum's forensic near-black: this is workshop paper,
+     not archive card. */
+  --ink: #14161a;
+  --ink-soft: #3d434c;
+  --ink-faint: #757c86;
+  --paper: #ffffff;
+  --paper-tint: #f5f3ee;      /* flight-plan paper */
+  --paper-deep: #e6e2d8;
+  --rule: #c9c5ba;
+  --rule-strong: #14161a;
+
+  /* The accent. One hi-vis orange, and it has exactly one job on a diagram:
+     THIS is the fold you make now. Everything already folded is grey. */
+  --hi: #dd4c17;
+  --hi-tint: #fcece4;
+
+  /* Secondary accent, reserved for one job: how the plane behaves in the air —
+     flight paths, glide arcs, trim marks, distance. Never used for a fold, or
+     the diagrams stop reading at a glance. */
+  --air: #1d5c96;
+  --air-tint: #e6eef6;
+
+  /* Neutral panel for adult-facing instructions. */
+  --slate-tint: #eaecef;
+
+  /* Type. Five jobs, five faces.
+     display   covers and plane names — industrial grotesk, heavy, no nonsense
+     signage   labels, step numbers, running heads — transport-signage condensed
+     text      instructions a child reads — humanist sans, open apertures
+     data      measurements, log sheets, serials — instrument mono
+     hand      the pilot's own writing, on certificates and logs */
+  --font-display: "Archivo Black", "Liberation Sans", Arial, sans-serif;
+  --font-signage: "Barlow Condensed", "Liberation Sans Narrow", "Arial Narrow", sans-serif;
+  --font-text: "Barlow", "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "Share Tech Mono", "Liberation Mono", "Courier New", monospace;
+  --font-hand: "Caveat", cursive;
+  /* The page system expects a document face; this brand has no in-world
+     typewriter, so it borrows the instrument mono. */
+  --font-document: var(--font-data);
+
+  --size-display: 42pt;
+  --size-h1: 27pt;
+  --size-h2: 16pt;
+  --size-h3: 12pt;
+  --size-lead: 12pt;
+  --size-body: 11pt;
+  --size-small: 9.5pt;
+  --size-caption: 8.5pt;
+  --size-label: 8.5pt;
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.24;
+  --leading-body: 1.45;
+  --leading-loose: 1.55;
+
+  --track-label: 0.14em;
+  --track-display: -0.015em;
+
+  /* Spacing — an 8pt rhythm expressed in mm. */
+  --space-1: 2mm;
+  --space-2: 4mm;
+  --space-3: 6mm;
+  --space-4: 8mm;
+  --space-5: 11mm;
+  --space-6: 15mm;
+  --space-7: 20mm;
+
+  --hairline: 0.25mm;
+  --rule-medium: 0.5mm;
+  --rule-heavy: 1.2mm;
+
+  /* Diagram line weights, in SVG user units (the diagrams are drawn on a
+     100-wide sheet, so these are percentages of the sheet's width). */
+  --dw-edge: 0.9;
+  --dw-crease: 0.5;
+  --dw-fold: 0.9;
+}

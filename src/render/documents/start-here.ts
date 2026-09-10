@@ -65,5 +65,5 @@ export function startHere(kit: Kit, size: PaperSize): string {
     runfoot(`${kit.seriesName} &middot; ${kit.title} v${kit.version}`, kit.publisherUrl),
   ), { tint: true });
 
-  return html(`${kit.title} — Start Here`, size, [page]);
+  return html('museum', `${kit.title} — Start Here`, size, [page]);
 }

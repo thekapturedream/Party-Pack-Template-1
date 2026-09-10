@@ -121,5 +121,5 @@ export function freeSample(kit: Kit, size: PaperSize): string {
     runfoot(`${kit.seriesName} &middot; free sample`, kit.publisherUrl),
   ), { tint: true });
 
-  return html(`${kit.title} — Free Sample`, size, [cover, puzzle, solution]);
+  return html('museum', `${kit.title} — Free Sample`, size, [cover, puzzle, solution]);
 }
